@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VR {
 
-    
+
 
     public class Main : MonoBehaviour {
 
@@ -18,7 +18,9 @@ namespace VR {
 
 
         void Update() {
-
+            float dt = Time.deltaTime;
+            ctx.inputCore.Tick(dt);
         }
+        
     }
 }

@@ -9,6 +9,8 @@ namespace VR {
 
         public InputCore inputCore;
 
+        public UIApp uiApp;
+
         public GameContext() {
             inputCore = new InputCore();
         }
