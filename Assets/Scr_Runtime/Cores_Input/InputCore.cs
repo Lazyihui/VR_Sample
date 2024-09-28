@@ -19,15 +19,21 @@ namespace VR {
 
             float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
 
-            if(LeftHand > 0.5f) {
+            if (LeftHand > 0.5f) {
                 Debug.Log("LeftHand");
             }
 
-            if(RightHand > 0.5f) {
+            if (RightHand > 0.5f) {
                 Debug.Log("RightHand");
             }
         }
+        public Vector2 GetMoveAxis() {
+            return ctx.rightHandl.moveAxis;
+        }
 
+        public Vector2 GetRotateAxis() {
+            return ctx.rightHandl.rotateAxis;
+        }
 
     }
 }
