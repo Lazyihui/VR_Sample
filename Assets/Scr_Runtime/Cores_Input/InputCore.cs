@@ -15,6 +15,7 @@ namespace VR {
 
 
         public void Tick(float dt) {
+            
             float LeftHand = ctx.inputXRIAction.XRILeftHandInteraction.ActivateValue.ReadValue<float>();
 
             float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
