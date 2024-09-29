@@ -10,6 +10,8 @@ namespace VR {
 
         public Vector2 rotateAxis;
 
+        public Quaternion rotate;
+
 
         public InputEntity() {
             moveAxis = Vector2.zero;

@@ -9,10 +9,13 @@ namespace VR {
 
         public Vector2 rotateAxis;
 
+        public Quaternion headrotate;
+
 
         public RoleInputComponent() {
             moveAxis = Vector2.zero;
             rotateAxis = Vector2.zero;
+            headrotate = Quaternion.identity;
 
         }
     }

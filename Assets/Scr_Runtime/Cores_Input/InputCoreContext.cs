@@ -10,6 +10,8 @@ namespace VR.InputInterval {
 
         public InputEntity leftHandl;
 
+        public InputEntity head;
+
         public InputXRIAction inputXRIAction;
 
         public InputCoreContext() {
@@ -18,6 +20,7 @@ namespace VR.InputInterval {
 
             leftHandl = new InputEntity();
             rightHandl = new InputEntity();
+            head = new InputEntity();
 
 
         }

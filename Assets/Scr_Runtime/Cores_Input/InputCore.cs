@@ -34,20 +34,35 @@ namespace VR {
                 ctx.leftHandl.moveAxis = moveAxis;
 
             }
-            // 旋转 右手旋转
+            // 旋转 右手旋转 不对 应该是头部旋转
+            // {
+            //     Vector2 rotateAxis = ctx.inputXRIAction.XRIRightHandLocomotion.Turn.ReadValue<Vector2>();
+            //     ctx.rightHandl.rotateAxis = rotateAxis;
+            // }
+
+            // 旋转 头部旋转
             {
-                Vector2 rotateAxis = ctx.inputXRIAction.XRIRightHandLocomotion.Turn.ReadValue<Vector2>();
-                ctx.rightHandl.rotateAxis = rotateAxis;
+                Quaternion quat = ctx.inputXRIAction.XRIHead.Rotation.ReadValue<Quaternion>();
+                
+                Vector3 fwd = quat * Vector3.forward;
+
+                ctx.head.rotate = quat;
             }
 
         }
-        public Vector2 GetMoveAxis() {
+        public Vector2 GetLeftMoveAxis() {
             return ctx.leftHandl.moveAxis;
         }
 
-        public Vector2 GetRotateAxis() {
+        public Vector2 GetRightRotateAxis() {
             return ctx.rightHandl.rotateAxis;
         }
+
+        public Quaternion GetHeadRotate() {
+            return ctx.head.rotate;
+        }
+        
+
 
     }
 }

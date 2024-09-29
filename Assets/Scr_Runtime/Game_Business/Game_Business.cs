@@ -51,15 +51,18 @@ namespace VR {
             RoleEntity owner = ctx.Role_GetOwner();
 
             RoleInputComponent InputComponent = owner.InputComponent;
-            InputComponent.moveAxis = input.GetMoveAxis();
-            InputComponent.rotateAxis = input.GetRotateAxis();
+            InputComponent.moveAxis = input.GetLeftMoveAxis();
+            InputComponent.rotateAxis = input.GetRightRotateAxis();
+            InputComponent.headrotate = input.GetHeadRotate();
+
         }
 
         static void FixTick(GameContext ctx, float dt) {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
-            RoleDomain.RotateFace(ctx, owner, dt);
+            // RoleDomain.RotateFace(ctx, owner, dt);
+            RoleDomain.RotateHead(ctx, owner, dt);
 
         }
 
