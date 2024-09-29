@@ -28,20 +28,25 @@ namespace VR {
                 Debug.Log("RightHand");
             }
 
-            // 移动
+            // 移动 左手移动
             {
                 Vector2 moveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
                 ctx.leftHandl.moveAxis = moveAxis;
 
-           
-            }   
+            }
+            // 旋转 右手旋转
+            {
+                Vector2 rotateAxis = ctx.inputXRIAction.XRIRightHandLocomotion.Turn.ReadValue<Vector2>();
+                ctx.rightHandl.rotateAxis = rotateAxis;
+            }
+
         }
         public Vector2 GetMoveAxis() {
             return ctx.leftHandl.moveAxis;
         }
 
         public Vector2 GetRotateAxis() {
-            return ctx.leftHandl.rotateAxis;
+            return ctx.rightHandl.rotateAxis;
         }
 
     }
