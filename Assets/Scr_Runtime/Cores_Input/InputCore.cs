@@ -43,12 +43,20 @@ namespace VR {
             // 旋转 头部旋转
             {
                 Quaternion quat = ctx.inputXRIAction.XRIHead.Rotation.ReadValue<Quaternion>();
-                
+
                 Vector3 fwd = quat * Vector3.forward;
 
                 ctx.head.rotate = quat;
             }
+            // 得到左右手的位置
+            {
+                Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
+                ctx.leftHandl.position = leftHandPos;
+             
+                Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
+                ctx.rightHandl.position = rightHandPos;
 
+            }
         }
         public Vector2 GetLeftMoveAxis() {
             return ctx.leftHandl.moveAxis;
@@ -61,8 +69,14 @@ namespace VR {
         public Quaternion GetHeadRotate() {
             return ctx.head.rotate;
         }
-        
 
+        public Vector3 GetLeftHandPos() {
+            return ctx.leftHandl.position;
+        }
+
+        public Vector3 GetRightHandPos() {
+            return ctx.rightHandl.position;
+        }
 
     }
 }

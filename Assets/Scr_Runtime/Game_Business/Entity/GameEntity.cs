@@ -9,12 +9,16 @@ namespace VR {
 
         public int roleOwnerID;
 
+        public int handRecoredID;
+
         public float restTime;
 
         public float enterTimer;
 
         public GameEntity() {
             roleOwnerID = 0;
+            handRecoredID = 0;
+
             restTime = 0;
 
             enterTimer = 3;

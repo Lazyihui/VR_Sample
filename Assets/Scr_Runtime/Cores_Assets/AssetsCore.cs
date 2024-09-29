@@ -48,6 +48,11 @@ namespace VR {
             ctx.entityPrefabs.TryGetValue("Entity_Role", out GameObject role);
             return role;
         }
+
+        public GameObject Entity_GetHand() {
+            ctx.entityPrefabs.TryGetValue("Entity_Hand", out GameObject hand);
+            return hand;
+        }
     }
 }
 

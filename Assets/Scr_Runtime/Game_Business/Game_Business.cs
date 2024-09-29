@@ -8,6 +8,14 @@ namespace VR {
 
             RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
             ctx.gameEntity.roleOwnerID = role.id;
+
+            Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
+            HandEntity Lefthand = HandDomain.HandSpawn(ctx, leftHandPos, HandConst.HandType_Left);
+
+            Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
+            HandEntity Righthand = HandDomain.HandSpawn(ctx, rightHandPos, HandConst.HandType_Right);
+
+
         }
 
 
@@ -63,6 +71,14 @@ namespace VR {
             RoleDomain.Move(ctx, owner, dt);
             // RoleDomain.RotateFace(ctx, owner, dt);
             RoleDomain.RotateHead(ctx, owner, dt);
+
+            int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
+            for (int i = 0; i < lenHand; i++) {
+                HandEntity hand = hands[i];
+
+                HandDomain.SetHandPos(ctx, hand);
+                
+            }
 
         }
 

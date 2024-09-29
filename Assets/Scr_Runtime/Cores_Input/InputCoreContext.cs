@@ -19,9 +19,12 @@ namespace VR.InputInterval {
             inputXRIAction.Enable();
 
             leftHandl = new InputEntity();
-            rightHandl = new InputEntity();
-            head = new InputEntity();
+            leftHandl.typeID = HandConst.HandType_Left;
 
+            rightHandl = new InputEntity();
+            rightHandl.typeID = HandConst.HandType_Right;
+
+            head = new InputEntity();
 
         }
 
