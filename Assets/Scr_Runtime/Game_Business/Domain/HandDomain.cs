@@ -33,9 +33,10 @@ namespace VR {
 
         public static void SetHandPos(GameContext ctx, HandEntity entity) {
             if (entity.typeID == HandConst.HandType_Left) {
-                entity.SetPosition(ctx.inputCore.GetLeftHandPos());
+                Vector3 pos = ctx.inputCore.GetLeftHandPos()+ctx.inputCore.GetHeadPos();
+                entity.SetPosition(ctx.inputCore.GetLeftHandPos()+ctx.inputCore.GetHeadPos());
             } else if (entity.typeID == HandConst.HandType_Right) {
-                entity.SetPosition(ctx.inputCore.GetRightHandPos());
+                entity.SetPosition(ctx.inputCore.GetRightHandPos()+ctx.inputCore.GetHeadPos());
             }
 
         }

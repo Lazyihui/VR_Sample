@@ -31,6 +31,8 @@ namespace VR {
 
             };
             action.Invoke();
+
+
         }
 
 
@@ -41,6 +43,7 @@ namespace VR {
             float dt = Time.deltaTime;
 
             Game_Business.Tick(ctx, dt);
+
         }
         void OnApplictionQuit() {
             TearDown();

@@ -14,19 +14,19 @@ namespace VR {
         }
 
 
-        public void Tick(float dt) {
+        public void Tick(float dt,Camera camera) {
 
-            float LeftHand = ctx.inputXRIAction.XRILeftHandInteraction.ActivateValue.ReadValue<float>();
+            // float LeftHand = ctx.inputXRIAction.XRILeftHandInteraction.ActivateValue.ReadValue<float>();
 
-            float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
+            // float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
 
-            if (LeftHand > 0.5f) {
-                Debug.Log("LeftHand");
-            }
+            // if (LeftHand > 0.5f) {
+            //     Debug.Log("LeftHand");
+            // }
 
-            if (RightHand > 0.5f) {
-                Debug.Log("RightHand");
-            }
+            // if (RightHand > 0.5f) {
+            //     Debug.Log("RightHand");
+            // }
 
             // 移动 左手移动
             {
@@ -42,21 +42,37 @@ namespace VR {
 
             // 旋转 头部旋转
             {
+                // Quaternion quat = camera.transform.rotation;
+                // ctx.head.rotate = quat;
+                
                 Quaternion quat = ctx.inputXRIAction.XRIHead.Rotation.ReadValue<Quaternion>();
 
                 Vector3 fwd = quat * Vector3.forward;
 
                 ctx.head.rotate = quat;
             }
+            // 位置 头部位置
+            {
+                Vector3 headPos = camera.transform.position;
+                Debug.Log("headPos:" + headPos);    
+                ctx.head.position = headPos;
+                Debug.Log("headPos:" + headPos);
+            }
+            {
+
+            }
             // 得到左右手的位置
             {
                 Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
                 ctx.leftHandl.position = leftHandPos;
-             
+                Debug.Log("leftHandPos:" + leftHandPos);
+
                 Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
                 ctx.rightHandl.position = rightHandPos;
-
+                Debug.Log("rightHandPos:" + rightHandPos);
             }
+
+
         }
         public Vector2 GetLeftMoveAxis() {
             return ctx.leftHandl.moveAxis;
@@ -76,6 +92,11 @@ namespace VR {
 
         public Vector3 GetRightHandPos() {
             return ctx.rightHandl.position;
+        }
+
+        public Vector3 GetHeadPos() {
+            Debug.Log("GetHeadPos:" + ctx.head.position);
+            return ctx.head.position;
         }
 
     }

@@ -28,8 +28,13 @@ namespace VR {
             // 相机跟随
             Camera maincam = ctx.camera;
             maincam.transform.position = follow_targetPos + new Vector3(follow_Offset.x, follow_Offset.y, -follow_distance);
+
             maincam.transform.forward = face;
 
+        }
+
+        public Camera GetCamera(){
+            return ctx.camera;
         }
     }
 }

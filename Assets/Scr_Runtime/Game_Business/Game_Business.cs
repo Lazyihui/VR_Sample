@@ -6,14 +6,16 @@ namespace VR {
     public static class Game_Business {
         public static void Enter(GameContext ctx) {
 
-            RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
+            RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, -5));
             ctx.gameEntity.roleOwnerID = role.id;
 
+            Vector3 handPos = ctx.inputCore.GetHeadPos();
+
             Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
-            HandEntity Lefthand = HandDomain.HandSpawn(ctx, leftHandPos, HandConst.HandType_Left);
+            HandEntity Lefthand = HandDomain.HandSpawn(ctx, leftHandPos+handPos, HandConst.HandType_Left);
 
             Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
-            HandEntity Righthand = HandDomain.HandSpawn(ctx, rightHandPos, HandConst.HandType_Right);
+            HandEntity Righthand = HandDomain.HandSpawn(ctx, rightHandPos+handPos, HandConst.HandType_Right);
 
 
         }
@@ -53,7 +55,7 @@ namespace VR {
         static void PreTick(GameContext ctx, float dt) {
             InputCore input = ctx.inputCore;
 
-            input.Tick(dt);
+            input.Tick(dt, ctx.cameraCore.GetCamera());
 
             // 赋值给角色
             RoleEntity owner = ctx.Role_GetOwner();
@@ -75,7 +77,6 @@ namespace VR {
             int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
             for (int i = 0; i < lenHand; i++) {
                 HandEntity hand = hands[i];
-
                 HandDomain.SetHandPos(ctx, hand);
                 
             }
