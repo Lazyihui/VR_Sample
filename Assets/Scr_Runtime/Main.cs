@@ -39,7 +39,8 @@ namespace VR {
                 return;
             }
             float dt = Time.deltaTime;
-            ctx.inputCore.Tick(dt);
+
+            Game_Business.Tick(ctx, dt);
         }
         void OnApplictionQuit() {
             TearDown();

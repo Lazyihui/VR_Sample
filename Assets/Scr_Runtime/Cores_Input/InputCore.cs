@@ -15,7 +15,7 @@ namespace VR {
 
 
         public void Tick(float dt) {
-            
+
             float LeftHand = ctx.inputXRIAction.XRILeftHandInteraction.ActivateValue.ReadValue<float>();
 
             float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
@@ -27,13 +27,21 @@ namespace VR {
             if (RightHand > 0.5f) {
                 Debug.Log("RightHand");
             }
+
+            // 移动
+            {
+                Vector2 moveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
+                ctx.leftHandl.moveAxis = moveAxis;
+
+           
+            }   
         }
         public Vector2 GetMoveAxis() {
-            return ctx.rightHandl.moveAxis;
+            return ctx.leftHandl.moveAxis;
         }
 
         public Vector2 GetRotateAxis() {
-            return ctx.rightHandl.rotateAxis;
+            return ctx.leftHandl.rotateAxis;
         }
 
     }

@@ -34,7 +34,7 @@ namespace VR {
         public static void Move(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
             float moveSpeed = role.moveSpeed;
-
+            Debug.Log("move"+inputComponent.moveAxis);
             Vector3 moveDir = new Vector3(inputComponent.moveAxis.x, 0, inputComponent.moveAxis.y);
             moveDir.Normalize();
             // 这一句让物体始终向物体的前方移动
