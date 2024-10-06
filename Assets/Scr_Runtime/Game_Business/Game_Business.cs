@@ -1,12 +1,15 @@
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.XR;
 
 namespace VR {
     public static class Game_Business {
         public static void Enter(GameContext ctx) {
 
-            RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, -5));
+            RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
+            
             ctx.gameEntity.roleOwnerID = role.id;
 
             Vector3 handPos = ctx.inputCore.GetHeadPos();
@@ -17,11 +20,7 @@ namespace VR {
             Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
             HandEntity Righthand = HandDomain.HandSpawn(ctx, rightHandPos+handPos, HandConst.HandType_Right);
 
-
         }
-
-
-
 
         public static void Tick(GameContext ctx, float dt) {
 
@@ -78,7 +77,6 @@ namespace VR {
             for (int i = 0; i < lenHand; i++) {
                 HandEntity hand = hands[i];
                 HandDomain.SetHandPos(ctx, hand);
-                
             }
 
         }
@@ -89,7 +87,7 @@ namespace VR {
             Vector2 offset = new Vector2(0, 0);
 
             ctx.cameraCore.Tick(owner.transform.position, offset, 0, owner.transform.forward, dt);
-        }
+        } 
 
     }
 }

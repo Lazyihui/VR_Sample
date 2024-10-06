@@ -8,7 +8,6 @@ namespace VR {
 
         public InputCoreContext ctx;
 
-
         public InputCore() {
             ctx = new InputCoreContext();
         }
@@ -53,8 +52,8 @@ namespace VR {
             }
             // 位置 头部位置
             {
-                Vector3 headPos = camera.transform.position;
-                Debug.Log("headPos:" + headPos);    
+                Vector3 headPos = ctx.inputXRIAction.XRIHead.Position.ReadValue<Vector3>();
+                 
                 ctx.head.position = headPos;
                 Debug.Log("headPos:" + headPos);
             }

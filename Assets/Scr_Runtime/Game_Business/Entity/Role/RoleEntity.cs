@@ -20,6 +20,10 @@ namespace VR {
             rotateSpeed = 100;
         }
 
+        public void SetPos(Vector3 pos ) {
+            transform.position += pos;
+        }
+
         public void TearDown() {
             Destroy(gameObject);
         }

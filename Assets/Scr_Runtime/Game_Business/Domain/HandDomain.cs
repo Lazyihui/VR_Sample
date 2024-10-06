@@ -32,11 +32,11 @@ namespace VR {
         }
 
         public static void SetHandPos(GameContext ctx, HandEntity entity) {
+            Vector3 headPos = ctx.cameraCore.GetCamera().transform.position;
             if (entity.typeID == HandConst.HandType_Left) {
-                Vector3 pos = ctx.inputCore.GetLeftHandPos()+ctx.inputCore.GetHeadPos();
-                entity.SetPosition(ctx.inputCore.GetLeftHandPos()+ctx.inputCore.GetHeadPos());
+                entity.SetPosition(ctx.inputCore.GetLeftHandPos()+headPos);
             } else if (entity.typeID == HandConst.HandType_Right) {
-                entity.SetPosition(ctx.inputCore.GetRightHandPos()+ctx.inputCore.GetHeadPos());
+                entity.SetPosition(ctx.inputCore.GetRightHandPos()+headPos);
             }
 
         }
