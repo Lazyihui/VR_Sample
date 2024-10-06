@@ -64,11 +64,9 @@ namespace VR {
             {
                 Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
                 ctx.leftHandl.position = leftHandPos;
-                Debug.Log("leftHandPos:" + leftHandPos);
 
                 Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
                 ctx.rightHandl.position = rightHandPos;
-                Debug.Log("rightHandPos:" + rightHandPos);
             }
 
 

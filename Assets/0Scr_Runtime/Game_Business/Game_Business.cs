@@ -12,13 +12,21 @@ namespace VR {
             
             ctx.gameEntity.roleOwnerID = role.id;
 
-            Vector3 handPos = ctx.inputCore.GetHeadPos();
+            // Vector3 handPos = ctx.inputCore.GetHeadPos();
+
+            Transform handSpawnPos = role.transform;
+
 
             Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
-            HandEntity Lefthand = HandDomain.HandSpawn(ctx, leftHandPos+handPos, HandConst.HandType_Left);
+            HandEntity Lefthand = HandDomain.HandSpawn(ctx,handSpawnPos, HandConst.HandType_Left, leftHandPos);
 
             Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
-            HandEntity Righthand = HandDomain.HandSpawn(ctx, rightHandPos+handPos, HandConst.HandType_Right);
+            HandEntity Righthand = HandDomain.HandSpawn(ctx,handSpawnPos, HandConst.HandType_Right, rightHandPos);
+
+
+
+
+
 
         }
 

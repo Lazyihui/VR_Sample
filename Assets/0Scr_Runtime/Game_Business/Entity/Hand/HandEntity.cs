@@ -17,6 +17,7 @@ namespace VR {
 
         public void SetPosition(Vector3 position) {
             transform.position = position;
+            Debug.Log("HandEntity SetPosition"+position);
         }
 
         public void TearDown() {
