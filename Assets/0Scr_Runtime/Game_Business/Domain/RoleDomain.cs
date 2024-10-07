@@ -52,16 +52,16 @@ namespace VR {
             role.headtransform.rotation = Quaternion.LookRotation(rotateDir);
         }
         // 手的设备的移动
-        public static void SetHandPos(GameContext ctx, RoleEntity role) {
-
-
+        public static void SetHandPosition(GameContext ctx, RoleEntity role) {
             role.SetLeftHandDevicePos(ctx.inputCore.GetLeftHandPos());
-
             role.SetRightHandDevicePos(ctx.inputCore.GetRightHandPos());
-
         }
 
+        public static void SetHandRotate(GameContext ctx, RoleEntity role) {
+            role.SetLeftHandDeviceRot(ctx.inputCore.GetLeftHandRotate());
+            role.SetRightHandDeviceRot(ctx.inputCore.GetRightHandRotate());
 
+        }
     }
 
 

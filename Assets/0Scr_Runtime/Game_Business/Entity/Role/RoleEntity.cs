@@ -33,18 +33,22 @@ namespace VR {
         }
 
         public void SetLeftHandDevicePos(Vector3 pos) {
-
-      
             leftHandDevice.transform.localPosition = pos*0.1f + new Vector3(-0.5f, 1.2f, 0.85f);
         }
 
 
         public void SetRightHandDevicePos(Vector3 pos) {
-
             rightHandDevice.transform.localPosition = pos*0.1f + new Vector3(0.5f, 1.2f, 0.85f);
-
-
         }
+
+        public void SetLeftHandDeviceRot(Quaternion rot) {
+            leftHandDevice.transform.localRotation = rot;
+        }
+
+        public void SetRightHandDeviceRot(Quaternion rot) {
+            rightHandDevice.transform.localRotation = rot;
+        }
+        
 
         public Vector3 GetHandPos() {
             return headtransform.position;
@@ -53,6 +57,8 @@ namespace VR {
         public Vector3 GetHandForward() {
             return headtransform.forward;
         }
+
+
 
         public void SetPos(Vector3 pos) {
             transform.position += pos;

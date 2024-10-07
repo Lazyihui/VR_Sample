@@ -34,16 +34,16 @@ namespace VR {
                 ctx.rightHand.relativeHeadPos = rightHandPos;
             }
 
-            // 得到设备左右手移动的位置
+            // 得到手的旋转
             {
-                // Vector3 leftDeivcePos = ctx.inputXRIAction.XRILeftHand.AimPosition.ReadValue<Vector3>();
-                // ctx.leftHand.devicePos = leftDeivcePos;
-                // Debug.Log("leftDeivcePos:" + leftDeivcePos);
+                Quaternion leftHandRotate = ctx.inputXRIAction.XRILeftHand.Rotation.ReadValue<Quaternion>();
+                ctx.leftHand.rotate = leftHandRotate;
 
-                // Vector3 rightDeivcePos = ctx.inputXRIAction.XRIRightHand.AimPosition.ReadValue<Vector3>();
-                // ctx.rightHand.devicePos = rightDeivcePos;
+                Quaternion rightHandRotate = ctx.inputXRIAction.XRIRightHand.Rotation.ReadValue<Quaternion>();
+                ctx.rightHand.rotate = rightHandRotate;
 
             }
+           
 
 
             // 旋转 头部旋转
@@ -67,13 +67,7 @@ namespace VR {
 
 
         }
-        // public Vector3 GetLeftDevicePos() {
-        //     return ctx.leftHand.devicePos;
-        // }
-
-        // public Vector3 GetRightDevicePos() {
-        //     return ctx.rightHand.devicePos;
-        // }
+       
 
 
         public Vector2 GetLeftMoveAxis() {
@@ -94,7 +88,13 @@ namespace VR {
             return ctx.rightHand.relativeHeadPos;
         }
 
-        
+        public Quaternion GetLeftHandRotate() {
+            return ctx.leftHand.rotate;
+        }
+
+        public Quaternion GetRightHandRotate() {
+            return ctx.rightHand.rotate;
+        }        
 
     }
 }
