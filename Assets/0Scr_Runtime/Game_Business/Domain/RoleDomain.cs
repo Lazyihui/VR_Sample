@@ -31,6 +31,8 @@ namespace VR {
         }
 
 
+        // public static void 
+
         public static void Move(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
             float moveSpeed = role.moveSpeed;
@@ -59,6 +61,8 @@ namespace VR {
             role.transform.Rotate(rotateDir);
 
         }
+
+
 
         public static void RotateHead(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;

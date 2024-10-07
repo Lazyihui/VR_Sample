@@ -30,7 +30,7 @@ namespace VR {
             // 移动 左手移动
             {
                 Vector2 moveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
-                ctx.leftHandl.moveAxis = moveAxis;
+                ctx.leftHand.moveAxis = moveAxis;
 
             }
             // 旋转 右手旋转 不对 应该是头部旋转
@@ -63,20 +63,20 @@ namespace VR {
             // 得到左右手的位置
             {
                 Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
-                ctx.leftHandl.position = leftHandPos;
+                ctx.leftHand.position = leftHandPos;
 
                 Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
-                ctx.rightHandl.position = rightHandPos;
+                ctx.rightHand.position = rightHandPos;
             }
 
 
         }
         public Vector2 GetLeftMoveAxis() {
-            return ctx.leftHandl.moveAxis;
+            return ctx.leftHand.moveAxis;
         }
 
         public Vector2 GetRightRotateAxis() {
-            return ctx.rightHandl.rotateAxis;
+            return ctx.rightHand.rotateAxis;
         }
 
         public Quaternion GetHeadRotate() {
@@ -84,11 +84,11 @@ namespace VR {
         }
 
         public Vector3 GetLeftHandPos() {
-            return ctx.leftHandl.position;
+            return ctx.leftHand.position;
         }
 
         public Vector3 GetRightHandPos() {
-            return ctx.rightHandl.position;
+            return ctx.rightHand.position;
         }
 
         public Vector3 GetHeadPos() {

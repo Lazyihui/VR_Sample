@@ -19,6 +19,9 @@ namespace VR {
         void Awake() {
 
             ctx = new GameContext();
+            
+           
+            
             Camera camera = Camera.main;
             ctx.Inject(camera);
 

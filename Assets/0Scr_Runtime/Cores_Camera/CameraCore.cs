@@ -26,11 +26,20 @@ namespace VR {
 
 
             // 相机跟随
+            CameraFollow(follow_targetPos, follow_Offset, follow_distance, face);
+            
+            // Camera maincam = ctx.camera;
+            // maincam.transform.position = follow_targetPos + new Vector3(follow_Offset.x, follow_Offset.y, -follow_distance);
+
+            // maincam.transform.forward = face;
+
+        }
+
+        public void CameraFollow(Vector3 follow_targetPos, Vector2 follow_Offset, float follow_distance, Vector3 face) {
+
             Camera maincam = ctx.camera;
             maincam.transform.position = follow_targetPos + new Vector3(follow_Offset.x, follow_Offset.y, -follow_distance);
-
             maincam.transform.forward = face;
-
         }
 
         public Camera GetCamera(){

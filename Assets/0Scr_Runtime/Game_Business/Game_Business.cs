@@ -9,19 +9,17 @@ namespace VR {
         public static void Enter(GameContext ctx) {
 
             RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
-            
             ctx.gameEntity.roleOwnerID = role.id;
 
-            // Vector3 handPos = ctx.inputCore.GetHeadPos();
 
-            Transform handSpawnPos = role.transform;
+        
 
 
-            Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
-            HandEntity Lefthand = HandDomain.HandSpawn(ctx,handSpawnPos, HandConst.HandType_Left, leftHandPos);
+            // Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
+            // HandEntity Lefthand = HandDomain.HandSpawn(ctx, handSpawnPos, HandConst.HandType_Left, leftHandPos);
 
-            Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
-            HandEntity Righthand = HandDomain.HandSpawn(ctx,handSpawnPos, HandConst.HandType_Right, rightHandPos);
+            // Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
+            // HandEntity Righthand = HandDomain.HandSpawn(ctx, handSpawnPos, HandConst.HandType_Right, rightHandPos);
 
 
 
@@ -78,14 +76,14 @@ namespace VR {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
-            // RoleDomain.RotateFace(ctx, owner, dt);
+            RoleDomain.RotateFace(ctx, owner, dt);
             RoleDomain.RotateHead(ctx, owner, dt);
 
-            int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
-            for (int i = 0; i < lenHand; i++) {
-                HandEntity hand = hands[i];
-                HandDomain.SetHandPos(ctx, hand);
-            }
+            // int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
+            // for (int i = 0; i < lenHand; i++) {
+            //     HandEntity hand = hands[i];
+            //     HandDomain.SetHandPos(ctx, hand);
+            // }
 
         }
 
@@ -94,8 +92,8 @@ namespace VR {
 
             Vector2 offset = new Vector2(0, 0);
 
-            ctx.cameraCore.Tick(owner.transform.position, offset, 0, owner.transform.forward, dt);
-        } 
+            ctx.cameraCore.Tick(owner.GetHandPos(), offset, 0, owner.transform.forward, dt);
+        }
 
     }
 }
