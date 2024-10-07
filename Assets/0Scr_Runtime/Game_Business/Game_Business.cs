@@ -67,9 +67,7 @@ namespace VR {
 
             RoleInputComponent InputComponent = owner.InputComponent;
             InputComponent.moveAxis = input.GetLeftMoveAxis();
-            // 目前是00
-            InputComponent.rotateAxis = input.GetRightRotateAxis();
-            // 
+           
             InputComponent.headrotate = input.GetHeadRotate();
 
         }
@@ -78,17 +76,10 @@ namespace VR {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
-            // RoleDomain.RotateFace(ctx, owner, dt);
-            // RoleDomain.RotateHead(ctx, owner, dt);
 
-            // int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
-            // for (int i = 0; i < lenHand; i++) {
-            //     HandEntity hand = hands[i];
-            //     HandDomain.SetHandPos(ctx, hand);
-            // }
+            RoleDomain.RoleHeadRotate(ctx, owner, dt);
 
-
-        }
+        }   
 
         static void LateTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();

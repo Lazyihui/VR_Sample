@@ -7,7 +7,7 @@ namespace VR {
 
     public class RoleEntity : MonoBehaviour {
 
-        [SerializeField] Transform Handtransform;
+        [SerializeField] public Transform handtransform;
 
 
         public int id;
@@ -28,11 +28,11 @@ namespace VR {
         }
 
         public Vector3 GetHandPos() {
-            return Handtransform.position;
+            return handtransform.position;
         }
 
         public Vector3 GetHandForward() {
-            return Handtransform.forward;
+            return handtransform.forward;
         }
 
 

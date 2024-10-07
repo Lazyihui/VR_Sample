@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9df0fd2b41562f4e8bf40d2bf485918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Handtransform: {fileID: 7905330686158760259}
+  handtransform: {fileID: 7905330686158760259}
   id: 0
   moveSpeed: 0
   rotateSpeed: 0
