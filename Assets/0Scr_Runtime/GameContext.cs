@@ -22,7 +22,6 @@ namespace VR {
 
         public RoleRepo roleRepo;
 
-        public HandRepo handRepo;
         public UIApp uiApp;
 
         public GameContext() {
@@ -36,7 +35,6 @@ namespace VR {
 
             // rope
             roleRepo = new RoleRepo();
-            handRepo = new HandRepo();
         }
 
         public void Inject(Camera camera) {
