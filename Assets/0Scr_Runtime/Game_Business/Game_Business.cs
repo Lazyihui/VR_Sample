@@ -67,7 +67,9 @@ namespace VR {
 
             RoleInputComponent InputComponent = owner.InputComponent;
             InputComponent.moveAxis = input.GetLeftMoveAxis();
+            // 目前是00
             InputComponent.rotateAxis = input.GetRightRotateAxis();
+            // 
             InputComponent.headrotate = input.GetHeadRotate();
 
         }
@@ -76,8 +78,8 @@ namespace VR {
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(ctx, owner, dt);
-            RoleDomain.RotateFace(ctx, owner, dt);
-            RoleDomain.RotateHead(ctx, owner, dt);
+            // RoleDomain.RotateFace(ctx, owner, dt);
+            // RoleDomain.RotateHead(ctx, owner, dt);
 
             // int lenHand = ctx.handRepo.TakeAll(out HandEntity[] hands);
             // for (int i = 0; i < lenHand; i++) {
@@ -92,8 +94,8 @@ namespace VR {
             RoleEntity owner = ctx.Role_GetOwner();
 
             Vector2 offset = new Vector2(0, 0);
-
-            ctx.cameraCore.Tick(owner.GetHandPos(), offset, 0, owner.transform.forward, dt);
+            Debug.Log("Owner.transform.forward" + owner.transform.forward);
+            ctx.cameraCore.Tick(owner.GetHandPos(), offset, 0, owner.GetHandForward(), dt);
         }
 
     }

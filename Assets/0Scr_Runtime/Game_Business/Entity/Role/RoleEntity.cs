@@ -31,6 +31,9 @@ namespace VR {
             return Handtransform.position;
         }
 
+        public Vector3 GetHandForward() {
+            return Handtransform.forward;
+        }
 
 
 

@@ -47,13 +47,15 @@ namespace VR {
 
         }
 
+
+
         public static void RotateFace(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
-
+            // 旋转速度
             float rotateSpeed = role.rotateSpeed;
-
+            // 目前是00
             float UpDown = inputComponent.rotateAxis.y;
-
+            Debug.Log("UpDown:" + UpDown);
             Vector3 rotateDir = new Vector3(UpDown, inputComponent.rotateAxis.x, 0);
 
             rotateDir = rotateDir * rotateSpeed * dt;
@@ -66,12 +68,12 @@ namespace VR {
 
         public static void RotateHead(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
-            Vector3 rotateDir = inputComponent.headrotate *Vector3.forward;
+            Vector3 rotateDir = inputComponent.headrotate * Vector3.forward;
             role.transform.rotation = Quaternion.LookRotation(rotateDir);
         }
 
 
-        
+
 
     }
 

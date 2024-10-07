@@ -76,6 +76,7 @@ namespace VR {
         }
 
         public Vector2 GetRightRotateAxis() {
+            // 目前是00
             return ctx.rightHand.rotateAxis;
         }
 
