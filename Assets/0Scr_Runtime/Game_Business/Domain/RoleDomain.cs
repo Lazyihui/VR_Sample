@@ -39,7 +39,7 @@ namespace VR {
             moveDir.Normalize();
             // 这一句让物体始终向物体的前方移动 //向头的方向移动
 
-            moveDir = role.handtransform.transform.rotation * moveDir;
+            moveDir = role.headtransform.transform.rotation * moveDir;
             moveDir = moveDir * moveSpeed * dt;
             role.transform.position += moveDir;
 
@@ -49,17 +49,15 @@ namespace VR {
             RoleInputComponent inputComponent = role.InputComponent;
             Vector3 rotateDir = inputComponent.headrotate * Vector3.forward;
 
-            role.handtransform.rotation = Quaternion.LookRotation(rotateDir);
+            role.headtransform.rotation = Quaternion.LookRotation(rotateDir);
         }
         // 手的设备的移动
         public static void SetHandPos(GameContext ctx, RoleEntity role) {
 
 
+            role.SetLeftHandDevicePos(ctx.inputCore.GetLeftHandPos());
 
-
-            role.SetLeftHandDevicePos(ctx.inputCore.GetLeftDevicePos());
-
-            role.SetRightHandDevicePos(ctx.inputCore.GetRightDevicePos());
+            role.SetRightHandDevicePos(ctx.inputCore.GetRightHandPos());
 
         }
 

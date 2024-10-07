@@ -7,7 +7,7 @@ namespace VR {
 
     public class RoleEntity : MonoBehaviour {
 
-        [SerializeField] public Transform handtransform;
+        [SerializeField] public Transform headtransform;
 
         [SerializeField] public GameObject leftHandDevice;
 
@@ -33,19 +33,25 @@ namespace VR {
         }
 
         public void SetLeftHandDevicePos(Vector3 pos) {
-            leftHandDevice.transform.position = pos;
+
+      
+            leftHandDevice.transform.localPosition = pos*0.1f + new Vector3(-0.5f, 1.2f, 0.85f);
         }
 
+
         public void SetRightHandDevicePos(Vector3 pos) {
-            rightHandDevice.transform.position = pos;
+
+            rightHandDevice.transform.localPosition = pos*0.1f + new Vector3(0.5f, 1.2f, 0.85f);
+
+
         }
 
         public Vector3 GetHandPos() {
-            return handtransform.position;
+            return headtransform.position;
         }
 
         public Vector3 GetHandForward() {
-            return handtransform.forward;
+            return headtransform.forward;
         }
 
         public void SetPos(Vector3 pos) {

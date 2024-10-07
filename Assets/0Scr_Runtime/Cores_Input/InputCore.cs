@@ -36,12 +36,12 @@ namespace VR {
 
             // 得到设备左右手移动的位置
             {
-                Vector3 leftDeivcePos = ctx.inputXRIAction.XRILeftHand.AimPosition.ReadValue<Vector3>();
-                ctx.leftHand.devicePos = leftDeivcePos;
-                Debug.Log("leftDeivcePos:" + leftDeivcePos);
+                // Vector3 leftDeivcePos = ctx.inputXRIAction.XRILeftHand.AimPosition.ReadValue<Vector3>();
+                // ctx.leftHand.devicePos = leftDeivcePos;
+                // Debug.Log("leftDeivcePos:" + leftDeivcePos);
 
-                Vector3 rightDeivcePos = ctx.inputXRIAction.XRIRightHand.AimPosition.ReadValue<Vector3>();
-                ctx.rightHand.devicePos = rightDeivcePos;
+                // Vector3 rightDeivcePos = ctx.inputXRIAction.XRIRightHand.AimPosition.ReadValue<Vector3>();
+                // ctx.rightHand.devicePos = rightDeivcePos;
 
             }
 
@@ -67,23 +67,24 @@ namespace VR {
 
 
         }
-        public Vector3 GetLeftDevicePos() {
-            return ctx.leftHand.devicePos;
-        }
+        // public Vector3 GetLeftDevicePos() {
+        //     return ctx.leftHand.devicePos;
+        // }
 
-        public Vector3 GetRightDevicePos() {
-            return ctx.rightHand.devicePos;
-        }
+        // public Vector3 GetRightDevicePos() {
+        //     return ctx.rightHand.devicePos;
+        // }
 
 
         public Vector2 GetLeftMoveAxis() {
             return ctx.leftHand.moveAxis;
         }
 
-
         public Quaternion GetHeadRotate() {
             return ctx.head.rotate;
         }
+
+
 
         public Vector3 GetLeftHandPos() {
             return ctx.leftHand.relativeHeadPos;
@@ -93,10 +94,7 @@ namespace VR {
             return ctx.rightHand.relativeHeadPos;
         }
 
-        public Vector3 GetHeadPos() {
-            Debug.Log("GetHeadPos:" + ctx.head.relativeHeadPos);
-            return ctx.head.relativeHeadPos;
-        }
+        
 
     }
 }
