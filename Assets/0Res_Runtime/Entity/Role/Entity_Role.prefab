@@ -518,6 +518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handtransform: {fileID: 7905330686158760259}
+  leftHandDevice: {fileID: 3678100050778854512}
+  rightHandDevice: {fileID: 4233296812328797960}
   id: 0
   moveSpeed: 0
   rotateSpeed: 0

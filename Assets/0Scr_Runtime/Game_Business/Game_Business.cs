@@ -11,21 +11,6 @@ namespace VR {
             RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
             ctx.gameEntity.roleOwnerID = role.id;
 
-
-        
-
-
-            // Vector3 leftHandPos = ctx.inputCore.GetLeftHandPos();
-            // HandEntity Lefthand = HandDomain.HandSpawn(ctx, handSpawnPos, HandConst.HandType_Left, leftHandPos);
-
-            // Vector3 rightHandPos = ctx.inputCore.GetRightHandPos();
-            // HandEntity Righthand = HandDomain.HandSpawn(ctx, handSpawnPos, HandConst.HandType_Right, rightHandPos);
-
-
-
-
-
-
         }
 
         public static void Tick(GameContext ctx, float dt) {
@@ -78,6 +63,7 @@ namespace VR {
             RoleDomain.Move(ctx, owner, dt);
 
             RoleDomain.RoleHeadRotate(ctx, owner, dt);
+            // RoleDomain.SetHandPos(ctx, owner);
 
         }   
 
@@ -85,7 +71,6 @@ namespace VR {
             RoleEntity owner = ctx.Role_GetOwner();
 
             Vector2 offset = new Vector2(0, 0);
-            Debug.Log("Owner.transform.forward" + owner.transform.forward);
             ctx.cameraCore.Tick(owner.GetHandPos(), offset, 0, owner.GetHandForward(), dt);
         }
 

@@ -16,7 +16,7 @@ namespace VR {
             moveAxis = Vector2.zero;
             rotateAxis = Vector2.zero;
             headrotate = Quaternion.identity;
-
         }
+
     }
 }

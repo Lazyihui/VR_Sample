@@ -31,33 +31,36 @@ namespace VR {
         }
 
 
-        // public static void 
-
+        // 人物移动
         public static void Move(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
             float moveSpeed = role.moveSpeed;
             Vector3 moveDir = new Vector3(inputComponent.moveAxis.x, 0, inputComponent.moveAxis.y);
             moveDir.Normalize();
-            // 这一句让物体始终向物体的前方移动
-            moveDir = role.handtransform.transform.rotation * moveDir;
-            // 
+            // 这一句让物体始终向物体的前方移动 //向头的方向移动
 
+            moveDir = role.handtransform.transform.rotation * moveDir;
             moveDir = moveDir * moveSpeed * dt;
             role.transform.position += moveDir;
 
         }
-
-        public static void RotateHead(GameContext ctx, RoleEntity role, float dt) {
-            RoleInputComponent inputComponent = role.InputComponent;
-            Vector3 rotateDir = inputComponent.headrotate * Vector3.forward;
-            role.transform.rotation = Quaternion.LookRotation(rotateDir);
-        }
-
-        public static void RoleHeadRotate(GameContext ctx, RoleEntity role , float dt){
+        // 头的旋转
+        public static void RoleHeadRotate(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
             Vector3 rotateDir = inputComponent.headrotate * Vector3.forward;
 
             role.handtransform.rotation = Quaternion.LookRotation(rotateDir);
+        }
+        // 手的设备的移动
+        public static void SetHandPos(GameContext ctx, RoleEntity role) {
+
+
+
+
+            role.SetLeftHandDevicePos(ctx.inputCore.GetLeftDevicePos());
+
+            role.SetRightHandDevicePos(ctx.inputCore.GetRightDevicePos());
+
         }
 
 

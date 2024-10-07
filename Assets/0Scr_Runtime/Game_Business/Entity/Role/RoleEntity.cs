@@ -9,6 +9,11 @@ namespace VR {
 
         [SerializeField] public Transform handtransform;
 
+        [SerializeField] public GameObject leftHandDevice;
+
+        [SerializeField] public GameObject rightHandDevice;
+
+
 
         public int id;
 
@@ -27,6 +32,14 @@ namespace VR {
 
         }
 
+        public void SetLeftHandDevicePos(Vector3 pos) {
+            leftHandDevice.transform.position = pos;
+        }
+
+        public void SetRightHandDevicePos(Vector3 pos) {
+            rightHandDevice.transform.position = pos;
+        }
+
         public Vector3 GetHandPos() {
             return handtransform.position;
         }
@@ -34,10 +47,6 @@ namespace VR {
         public Vector3 GetHandForward() {
             return handtransform.forward;
         }
-
-
-
-
 
         public void SetPos(Vector3 pos) {
             transform.position += pos;

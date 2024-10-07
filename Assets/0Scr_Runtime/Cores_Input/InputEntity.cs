@@ -8,11 +8,12 @@ namespace VR {
 
         public int typeID;
 
-        public Vector3 position;
+        public Vector3 devicePos;
+
+        public Vector3 relativeHeadPos;
+
         
         public Vector2 moveAxis;
-
-        public Vector2 rotateAxis;
 
         public Quaternion rotate;
 
@@ -21,7 +22,7 @@ namespace VR {
 
         public InputEntity() {
             moveAxis = Vector2.zero;
-            rotateAxis = Vector2.zero;
+            devicePos = Vector3.zero;
         }
     }
 }

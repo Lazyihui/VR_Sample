@@ -13,37 +13,44 @@ namespace VR {
         }
 
 
-        public void Tick(float dt,Camera camera) {
+        public void Tick(float dt, Camera camera) {
 
-            // float LeftHand = ctx.inputXRIAction.XRILeftHandInteraction.ActivateValue.ReadValue<float>();
 
-            // float RightHand = ctx.inputXRIAction.XRIRightHandInteraction.ActivateValue.ReadValue<float>();
 
-            // if (LeftHand > 0.5f) {
-            //     Debug.Log("LeftHand");
-            // }
-
-            // if (RightHand > 0.5f) {
-            //     Debug.Log("RightHand");
-            // }
-
-            // 移动 左手移动
+            // 移动 左手移动 控制面板（相当于摇杆）
             {
+                // XRILeftHandLocomotion.Move 这个是得到移动的方向 [-1,1] 
                 Vector2 moveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
                 ctx.leftHand.moveAxis = moveAxis;
+            }
+
+            // 得到左右手相对于头的位置
+            {
+                // XRILeftHand.Position 得到的是相对于头部的位置
+                Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
+                ctx.leftHand.relativeHeadPos = leftHandPos;
+
+                Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
+                ctx.rightHand.relativeHeadPos = rightHandPos;
+            }
+
+            // 得到设备左右手移动的位置
+            {
+                Vector3 leftDeivcePos = ctx.inputXRIAction.XRILeftHand.AimPosition.ReadValue<Vector3>();
+                ctx.leftHand.devicePos = leftDeivcePos;
+                Debug.Log("leftDeivcePos:" + leftDeivcePos);
+
+                Vector3 rightDeivcePos = ctx.inputXRIAction.XRIRightHand.AimPosition.ReadValue<Vector3>();
+                ctx.rightHand.devicePos = rightDeivcePos;
 
             }
-            // 旋转 右手旋转 不对 应该是头部旋转
-            // {
-            //     Vector2 rotateAxis = ctx.inputXRIAction.XRIRightHandLocomotion.Turn.ReadValue<Vector2>();
-            //     ctx.rightHandl.rotateAxis = rotateAxis;
-            // }
+
 
             // 旋转 头部旋转
             {
                 // Quaternion quat = camera.transform.rotation;
                 // ctx.head.rotate = quat;
-                
+
                 Quaternion quat = ctx.inputXRIAction.XRIHead.Rotation.ReadValue<Quaternion>();
 
                 Vector3 fwd = quat * Vector3.forward;
@@ -53,48 +60,42 @@ namespace VR {
             // 位置 头部位置
             {
                 Vector3 headPos = ctx.inputXRIAction.XRIHead.Position.ReadValue<Vector3>();
-                 
-                ctx.head.position = headPos;
-                Debug.Log("headPos:" + headPos);
-            }
-            {
 
+                ctx.head.relativeHeadPos = headPos;
             }
-            // 得到左右手的位置
-            {
-                Vector3 leftHandPos = ctx.inputXRIAction.XRILeftHand.Position.ReadValue<Vector3>();
-                ctx.leftHand.position = leftHandPos;
 
-                Vector3 rightHandPos = ctx.inputXRIAction.XRIRightHand.Position.ReadValue<Vector3>();
-                ctx.rightHand.position = rightHandPos;
-            }
 
 
         }
+        public Vector3 GetLeftDevicePos() {
+            return ctx.leftHand.devicePos;
+        }
+
+        public Vector3 GetRightDevicePos() {
+            return ctx.rightHand.devicePos;
+        }
+
+
         public Vector2 GetLeftMoveAxis() {
             return ctx.leftHand.moveAxis;
         }
 
-        public Vector2 GetRightRotateAxis() {
-            // 目前是00
-            return ctx.rightHand.rotateAxis;
-        }
 
         public Quaternion GetHeadRotate() {
             return ctx.head.rotate;
         }
 
         public Vector3 GetLeftHandPos() {
-            return ctx.leftHand.position;
+            return ctx.leftHand.relativeHeadPos;
         }
 
         public Vector3 GetRightHandPos() {
-            return ctx.rightHand.position;
+            return ctx.rightHand.relativeHeadPos;
         }
 
         public Vector3 GetHeadPos() {
-            Debug.Log("GetHeadPos:" + ctx.head.position);
-            return ctx.head.position;
+            Debug.Log("GetHeadPos:" + ctx.head.relativeHeadPos);
+            return ctx.head.relativeHeadPos;
         }
 
     }
