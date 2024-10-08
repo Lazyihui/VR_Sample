@@ -49,6 +49,13 @@ namespace VR {
             rightHandDevice.transform.localRotation = rot;
         }
         
+        public Vector3 GetLeftHandPos() {
+            return leftHandDevice.transform.position;
+        }
+
+        public Vector3 GetRightHandPos() {
+            return rightHandDevice.transform.position;
+        }
 
         public Vector3 GetHandPos() {
             return headtransform.position;

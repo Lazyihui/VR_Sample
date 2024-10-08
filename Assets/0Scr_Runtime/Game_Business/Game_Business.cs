@@ -67,6 +67,7 @@ namespace VR {
             RoleDomain.RoleHeadRotate(ctx, owner, dt);
             RoleDomain.SetHandPosition(ctx, owner);
             RoleDomain.SetHandRotate(ctx, owner);
+            RoleDomain.Raycast(ctx, owner);
 
 
         }

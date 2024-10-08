@@ -1,5 +1,6 @@
 using System;
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace VR {
@@ -28,6 +29,23 @@ namespace VR {
         public static void UnSpawn(GameContext ctx, RoleEntity role) {
             ctx.roleRepo.Remove(role);
             role.TearDown();
+        }
+
+        public static void Raycast(GameContext ctx, RoleEntity role) {
+
+            //1.射线的起点
+            Vector3 rayOriginLeft = role.GetLeftHandPos();
+            Ray rayLeft = new Ray(rayOriginLeft, role.headtransform.forward);
+
+            // RaycastHit leftHit
+            bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 9999, 1 << 7);
+
+            Debug.DrawRay(rayOriginLeft, role.headtransform.forward * 9999, Color.green);
+            if (leftHit) {
+                // Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.red);
+                Debug.Log("hitInfo.point: " + hitInfo.point);
+            }
+
         }
 
 
