@@ -24,6 +24,9 @@ namespace VR {
 
         public UIApp uiApp;
 
+        // Inject
+
+
         public GameContext() {
             // 
             gameEntity = new GameEntity();
@@ -35,13 +38,17 @@ namespace VR {
 
             // rope
             roleRepo = new RoleRepo();
+
+            uiApp = new UIApp();
+
+            // 
         }
 
         public void Inject(Camera camera) {
             cameraCore.Inject(camera);
         }
 
-          public RoleEntity Role_GetOwner() {
+        public RoleEntity Role_GetOwner() {
             bool has = roleRepo.TryGet(gameEntity.roleOwnerID, out RoleEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Role_GetOwner: roleOwnerID not found");

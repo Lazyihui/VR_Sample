@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 6542fca49a5083a42be6850cf4f73c0e
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 6ef52a808f081db46ac6220193a29853
+    m_Address: Canvas_Login
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6bd6369f00e0a034ca640667812f6555, type: 2}
   m_SchemaSet:

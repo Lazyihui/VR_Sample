@@ -30,6 +30,7 @@ namespace VR {
                 isInit = true;
 
                 //== Enter==
+
                 Game_Business.Enter(ctx);
 
             };

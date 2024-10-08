@@ -23,7 +23,7 @@ namespace VR {
         public async Task LoadAll() {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
-                // TODO:"Entity"
+
                 labelReference.labelString = AssetLabelConst.Entity;
                 var handle = Addressables.LoadAssetsAsync<GameObject>(labelReference, null);
 
@@ -35,11 +35,28 @@ namespace VR {
                 ctx.entityHandle = handle;
 
             }
+
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+                labelReference.labelString = AssetLabelConst.Panel;
+                var handle = Addressables.LoadAssetsAsync<GameObject>(labelReference, null);
+
+                var all = await handle.Task;
+                foreach (var item in all) {
+                    ctx.panelPrefabs.Add(item.name, item);
+                }
+
+                ctx.panelHandle = handle;
+
+            }
         }
 
         public void UnloadAll() {
             if (ctx.entityHandle.IsValid()) {
                 Addressables.Release(ctx.entityHandle);
+            }
+            if (ctx.panelHandle.IsValid()) {
+                Addressables.Release(ctx.panelHandle);
             }
 
         }
@@ -52,6 +69,11 @@ namespace VR {
         public GameObject Entity_GetHand() {
             ctx.entityPrefabs.TryGetValue("Entity_Hand", out GameObject hand);
             return hand;
+        }
+
+        public GameObject Panel_GetLogin() {
+            ctx.panelPrefabs.TryGetValue("Canvas_Login", out GameObject login);
+            return login;
         }
     }
 }

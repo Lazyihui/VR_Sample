@@ -8,6 +8,8 @@ namespace VR {
     public static class Game_Business {
         public static void Enter(GameContext ctx) {
 
+            ctx.uiApp.Canvas_Login_Open(ctx);
+
             RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector3(0, 0, 0));
             ctx.gameEntity.roleOwnerID = role.id;
 
@@ -52,7 +54,7 @@ namespace VR {
 
             RoleInputComponent InputComponent = owner.InputComponent;
             InputComponent.moveAxis = input.GetLeftMoveAxis();
-           
+
             InputComponent.headrotate = input.GetHeadRotate();
 
         }
@@ -67,7 +69,7 @@ namespace VR {
             RoleDomain.SetHandRotate(ctx, owner);
 
 
-        }   
+        }
 
         static void LateTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();

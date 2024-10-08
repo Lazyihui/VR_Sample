@@ -90,6 +90,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Entity
+    - Panel
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 86322e272a8828d43807564ff067a11f, type: 2}

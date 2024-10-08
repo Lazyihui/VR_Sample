@@ -11,9 +11,14 @@ namespace VR.AssetsInternal {
 
         public Dictionary<string, GameObject> entityPrefabs;
 
+        public Dictionary<string, GameObject> panelPrefabs;
+
         public AsyncOperationHandle entityHandle;
+
+        public AsyncOperationHandle panelHandle;
         public AssetsContext() {
             entityPrefabs = new Dictionary<string, GameObject>();
+            panelPrefabs = new Dictionary<string, GameObject>();
         }
 
 

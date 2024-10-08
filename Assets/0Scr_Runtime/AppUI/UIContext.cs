@@ -2,16 +2,16 @@ using System;
 using UnityEngine;
 
 
-namespace VR.UIAppInterval {
+namespace VR {
 
 
     public class UIContext {
-        public Panel_Login panel_Login;
 
-        public UIEventCenter uiEventCenter;
+
+        public Canvas_Login canvas_Login;
 
         public UIContext() {
-            uiEventCenter = new UIEventCenter();
+
         }
     }
 }
