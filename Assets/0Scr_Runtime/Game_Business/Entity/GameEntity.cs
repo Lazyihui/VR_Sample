@@ -15,13 +15,15 @@ namespace VR {
 
         public float enterTimer;
 
+        public bool isTouchLoginButton;
+
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;
 
             restTime = 0;
-
             enterTimer = 3;
+
         }
     }
 }

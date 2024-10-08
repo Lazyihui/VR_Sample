@@ -4,16 +4,21 @@ using UnityEngine.UI;
 
 
 namespace VR {
-    public class Canvas_Login : MonoBehaviour{
+    public class Canvas_Login : MonoBehaviour {
+
+        [SerializeField] public Image Button;
 
 
-
-        public void Ctor(){
+        public void Ctor() {
 
         }
 
-        public void Show(){
+        public void Show() {
             gameObject.SetActive(true);
+        }
+
+        public void SetColor(Color color) {
+            Button.color = color;
         }
     }
 }

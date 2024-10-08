@@ -35,15 +35,18 @@ namespace VR {
 
             //1.射线的起点
             Vector3 rayOriginLeft = role.GetLeftHandPos();
-            Ray rayLeft = new Ray(rayOriginLeft, role.headtransform.forward);
+            Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
 
             // RaycastHit leftHit
             bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 9999, 1 << 7);
 
-            Debug.DrawRay(rayOriginLeft, role.headtransform.forward * 9999, Color.green);
+            Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 9999, Color.green);
             if (leftHit) {
                 // Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.red);
                 Debug.Log("hitInfo.point: " + hitInfo.point);
+                ctx.gameEntity.isTouchLoginButton = true;
+            } else {
+                ctx.gameEntity.isTouchLoginButton = false;
             }
 
         }

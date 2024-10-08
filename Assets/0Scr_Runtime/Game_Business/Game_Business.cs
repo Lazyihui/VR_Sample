@@ -70,6 +70,14 @@ namespace VR {
             RoleDomain.Raycast(ctx, owner);
 
 
+            // gameDomain
+
+            if (ctx.gameEntity.isTouchLoginButton) {
+                ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
+            } else {
+                ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
+            }
+
         }
 
         static void LateTick(GameContext ctx, float dt) {
