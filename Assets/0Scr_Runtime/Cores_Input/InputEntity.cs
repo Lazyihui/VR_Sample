@@ -17,6 +17,8 @@ namespace VR {
 
         public Quaternion rotate;
 
+        public float triggerValue;
+
         
 
 

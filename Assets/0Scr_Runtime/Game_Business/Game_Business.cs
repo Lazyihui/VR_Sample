@@ -78,7 +78,11 @@ namespace VR {
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
             }
 
+
+            
+
         }
+
 
         static void LateTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();

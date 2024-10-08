@@ -43,7 +43,16 @@ namespace VR {
                 ctx.rightHand.rotate = rightHandRotate;
 
             }
-           
+            // 得到扳机的位置
+            
+            {
+                // float leftHandTrigger = ctx.inputXRIAction.XRILeftHand.ReadValue<float>();
+                // ctx.leftHand.triggerValue = leftHandTrigger;
+
+                // float rightHandTrigger = ctx.inputXRIAction.XRIRightHandTriggerValue.ReadValue<float>();
+                // ctx.rightHand.triggerValue = rightHandTrigger;
+                
+            }
 
 
             // 旋转 头部旋转
@@ -65,9 +74,8 @@ namespace VR {
             }
 
 
-
         }
-       
+
 
 
         public Vector2 GetLeftMoveAxis() {
@@ -94,7 +102,7 @@ namespace VR {
 
         public Quaternion GetRightHandRotate() {
             return ctx.rightHand.rotate;
-        }        
+        }
 
     }
 }
