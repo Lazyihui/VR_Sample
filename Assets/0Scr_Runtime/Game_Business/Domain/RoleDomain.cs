@@ -15,6 +15,7 @@ namespace VR {
                 return null;
             }
 
+
             GameObject go = GameObject.Instantiate(prefab, pos, Quaternion.identity);
             RoleEntity entity = go.GetComponent<RoleEntity>();
 
