@@ -46,11 +46,21 @@ namespace VR {
             // 得到扳机的位置
             
             {
-                // float leftHandTrigger = ctx.inputXRIAction.XRILeftHand.ReadValue<float>();
-                // ctx.leftHand.triggerValue = leftHandTrigger;
+                float leftHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.UIPress.ReadValue<float>();
+                ctx.leftHand.triggerValue = leftHandTrigger;
+                Debug.Log("leftHandTrigger:" + leftHandTrigger);
 
-                // float rightHandTrigger = ctx.inputXRIAction.XRIRightHandTriggerValue.ReadValue<float>();
+                float a = ctx.inputXRIAction.XRILeftHandInteraction.UIPressValue.ReadValue<float>();
+
+                Debug.Log("a:" + a);
+
+                float isTracked = ctx.inputXRIAction.XRILeftHand.IsTracked.ReadValue<float>();
+
+                Debug.Log("isTracked:" + isTracked);
+
+                // float rightHandTrigger = ctx.inputXRIAction.XRIRightHand.IsTracked.ReadValue<float>();
                 // ctx.rightHand.triggerValue = rightHandTrigger;
+                // Debug.Log("rightHandTrigger:" + rightHandTrigger);
                 
             }
 
