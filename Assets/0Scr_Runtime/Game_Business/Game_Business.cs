@@ -70,16 +70,22 @@ namespace VR {
             RoleDomain.Raycast(ctx, owner);
 
 
+
             // gameDomain
 
-            if (ctx.gameEntity.isTouchLoginButton) {
+            if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
-            } else {
+            } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
             }
 
+            if (ctx.gameEntity.isLeftTouchLoginButton || ctx.gameEntity.isRightTouchLoginButton) {
+                //1. 按下扳机开始游戏
 
-            
+                // 2.换一个场景
+
+            }
+
 
         }
 

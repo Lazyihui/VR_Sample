@@ -40,16 +40,16 @@ namespace VR {
                 Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
 
                 // RaycastHit leftHit
-                bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 9999, 1 << 7);
+                bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 1.9f, 1 << 7);
 
-                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 9999, Color.green);
-                // if (leftHit) {
-                //     // Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.red);
-                //     Debug.Log("hitInfo.point: " + hitInfo.point);
-                //     ctx.gameEntity.isTouchLoginButton = true;
-                // } else {
-                //     ctx.gameEntity.isTouchLoginButton = false;
-                // }
+                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 1.9f, Color.red);
+                if (leftHit) {
+                    Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.green);
+
+                    ctx.gameEntity.isLeftTouchLoginButton = true;
+                } else {
+                    ctx.gameEntity.isLeftTouchLoginButton = false;
+                }
             }
             // 右手
             {
@@ -57,18 +57,18 @@ namespace VR {
                 Ray rayRight = new Ray(rayOriginRight, role.rightHandDevice.transform.forward);
 
                 // RaycastHit rightHit
-                bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 99999, 1 << 7);
-                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward * 99999, Color.red);
+                bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 1.9f, 1 << 7);
+                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward * 1.9f, Color.red);
+
 
 
                 if (rightHit) {
                     // Debug.DrawLine(rayOriginRight, hitInfo.point, Color.red);
                     Debug.DrawLine(rayOriginRight, hitInfo.point, Color.green);
-                    Debug.Log("hitInfo.point: " + hitInfo.point);
-                    
-                    ctx.gameEntity.isTouchLoginButton = true;
+
+                    ctx.gameEntity.isRightTouchLoginButton = true;
                 } else {
-                    ctx.gameEntity.isTouchLoginButton = false;
+                    ctx.gameEntity.isRightTouchLoginButton = false;
                 }
             }
 

@@ -15,7 +15,9 @@ namespace VR {
 
         public float enterTimer;
 
-        public bool isTouchLoginButton;
+        public bool isRightTouchLoginButton;
+
+        public bool isLeftTouchLoginButton;
 
         public GameEntity() {
             roleOwnerID = 0;
