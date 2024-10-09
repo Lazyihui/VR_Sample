@@ -19,6 +19,8 @@ namespace VR {
 
         public bool isLeftTouchLoginButton;
 
+    
+
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;

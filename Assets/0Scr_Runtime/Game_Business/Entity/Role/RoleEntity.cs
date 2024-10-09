@@ -22,6 +22,8 @@ namespace VR {
         public float rotateSpeed;
         public RoleInputComponent InputComponent;
 
+        public RoleState roleState;
+
 
 
         public void Ctor() {

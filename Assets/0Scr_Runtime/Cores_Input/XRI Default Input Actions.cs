@@ -880,7 +880,7 @@ namespace VR
                     ""path"": ""<XRController>{LeftHand}/{TriggerButton}"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
+                    ""groups"": """",
                     ""action"": ""UI Press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1676,7 +1676,7 @@ namespace VR
                     ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Generic XR Controller"",
+                    ""groups"": """",
                     ""action"": ""UI Press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -2395,6 +2395,17 @@ namespace VR
                     ""name"": """",
                     ""id"": ""198e6869-709e-448d-96d4-27186c9d56e6"",
                     ""path"": ""<Touchscreen>/Press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d711d012-c0a5-4c3e-8c3f-d0034c3541cb"",
+                    ""path"": ""<XRController>{RightHand}/{TriggerButton}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

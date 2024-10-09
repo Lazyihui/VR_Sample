@@ -50,14 +50,14 @@ namespace VR {
                 float leftHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.UIPress.ReadValue<float>();
                 ctx.leftHand.triggerValue = leftHandTrigger;
                 if (leftHandTrigger > 0.5f) {
-                    Debug.Log("leftHandTrigger:" + leftHandTrigger);
                 }
 
                 float rightHandTrigger = ctx.inputXRIAction.XRIRightHandInteraction.UIPress.ReadValue<float>();
                 ctx.rightHand.triggerValue = rightHandTrigger;
                 if (rightHandTrigger > 0.5f) {
-                    Debug.Log("rightHandTrigger:" + rightHandTrigger);
+
                 }
+
 
             }
 
