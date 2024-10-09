@@ -62,9 +62,10 @@ namespace VR {
         }
 
         public GameObject Entity_GetRole() {
-            ctx.entityPrefabs.TryGetValue("Entity_Role", out GameObject role);
+            ctx.entityPrefabs.TryGetValue("Entity_Role_test", out GameObject role);
             return role;
         }
+        
 
         public GameObject Entity_GetHand() {
             ctx.entityPrefabs.TryGetValue("Entity_Hand", out GameObject hand);
