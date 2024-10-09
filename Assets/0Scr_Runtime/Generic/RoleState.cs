@@ -1,7 +1,7 @@
 public enum RoleState{
-    none,
+    None,
 
-    stand,
+    Idle,
 
-    walk,
+    Move,
 }

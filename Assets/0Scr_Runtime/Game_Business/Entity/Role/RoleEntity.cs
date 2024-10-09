@@ -32,15 +32,17 @@ namespace VR {
             moveSpeed = 5.5f;
             rotateSpeed = 100;
 
+            roleState = RoleState.Idle;
+
         }
 
         public void SetLeftHandDevicePos(Vector3 pos) {
-            leftHandDevice.transform.localPosition = pos*0.1f + new Vector3(-0.5f, 1.2f, 0.85f);
+            leftHandDevice.transform.localPosition = pos * 0.1f + new Vector3(-0.5f, 1.2f, 0.85f);
         }
 
 
         public void SetRightHandDevicePos(Vector3 pos) {
-            rightHandDevice.transform.localPosition = pos*0.1f + new Vector3(0.5f, 1.2f, 0.85f);
+            rightHandDevice.transform.localPosition = pos * 0.1f + new Vector3(0.5f, 1.2f, 0.85f);
         }
 
         public void SetLeftHandDeviceRot(Quaternion rot) {
@@ -50,7 +52,7 @@ namespace VR {
         public void SetRightHandDeviceRot(Quaternion rot) {
             rightHandDevice.transform.localRotation = rot;
         }
-        
+
         public Vector3 GetLeftHandPos() {
             return leftHandDevice.transform.position;
         }

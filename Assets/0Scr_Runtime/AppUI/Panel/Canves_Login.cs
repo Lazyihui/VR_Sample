@@ -18,12 +18,16 @@ namespace VR {
             });
         }
 
-        public void Show() {
-            gameObject.SetActive(true);
-        }
+
 
         public void SetColor(Color color) {
             bg_Btn.color = color;
+        }
+        public void Show() {
+            gameObject.SetActive(true);
+        }
+        public void TearDown() {
+            GameObject.Destroy(gameObject);
         }
     }
 }

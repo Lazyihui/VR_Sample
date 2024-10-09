@@ -38,7 +38,7 @@ namespace VR {
             action.Invoke();
 
             Binding(ctx);
-            
+
 
 
         }
@@ -49,8 +49,7 @@ namespace VR {
 
             uiEventCenter.OnStartBtnClickHandle = () => {
                 
-                Debug.Log("OnStartBtnClickHandle");
-
+                Game_Business.EnterGame(ctx);
             };
 
         }

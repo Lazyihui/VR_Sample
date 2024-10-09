@@ -15,6 +15,15 @@ namespace VR {
 
         }
 
+        public static void EnterGame(GameContext ctx){
+
+            ctx.uiApp.Canvas_Login_Close(ctx);
+
+            RoleEntity role = ctx.Role_GetOwner();
+            role.roleState = RoleState.Move;
+
+        }
+
         public static void Tick(GameContext ctx, float dt) {
 
             GameEntity game = ctx.gameEntity;
@@ -62,30 +71,31 @@ namespace VR {
         static void FixTick(GameContext ctx, float dt) {
 
             RoleEntity owner = ctx.Role_GetOwner();
-            RoleDomain.Move(ctx, owner, dt);
+            if (owner.roleState == RoleState.Idle) {
+                RoleDomain.SetHandPosition(ctx, owner);
+                RoleDomain.SetHandRotate(ctx, owner);
+            } else if (owner.roleState == RoleState.Move) {
+                RoleDomain.Move(ctx, owner, dt);
 
-            RoleDomain.RoleHeadRotate(ctx, owner, dt);
-            RoleDomain.SetHandPosition(ctx, owner);
-            RoleDomain.SetHandRotate(ctx, owner);
-            RoleDomain.Raycast(ctx, owner);
+                RoleDomain.RoleHeadRotate(ctx, owner, dt);
+
+                RoleDomain.SetHandPosition(ctx, owner);
+                RoleDomain.SetHandRotate(ctx, owner);
+            }
+
 
 
 
             // gameDomain
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
+                
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
+
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
-            }
-
-            if (ctx.gameEntity.isLeftTouchLoginButton || ctx.gameEntity.isRightTouchLoginButton) {
-                //1. 按下扳机开始游戏
-
-                // 2.换一个场景
 
             }
-
 
         }
 
