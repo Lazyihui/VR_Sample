@@ -73,7 +73,8 @@ namespace VR {
         }
 
         public GameObject Panel_GetLogin() {
-            ctx.panelPrefabs.TryGetValue("Canvas_Login", out GameObject login);
+            
+            ctx.panelPrefabs.TryGetValue("Canvas_test", out GameObject login);
             return login;
         }
     }
