@@ -19,9 +19,9 @@ namespace VR {
         void Awake() {
 
             ctx = new GameContext();
-            
-           
-            
+
+
+
             Camera camera = Camera.main;
             ctx.Inject(camera);
 
@@ -34,12 +34,26 @@ namespace VR {
                 Game_Business.Enter(ctx);
 
             };
-            
+
             action.Invoke();
+
+            Binding(ctx);
+            
 
 
         }
 
+        void Binding(GameContext ctx) {
+
+            var uiEventCenter = ctx.uiApp.uiEventCenter;
+
+            uiEventCenter.OnStartBtnClickHandle = () => {
+                
+                Debug.Log("OnStartBtnClickHandle");
+
+            };
+
+        }
 
         void Update() {
             if (!isInit) {

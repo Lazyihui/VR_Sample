@@ -9,7 +9,9 @@ namespace VR {
 
         public Canvas_Login canvas_Login;
 
+        public UIEventCenter uiEventCenter;
         public UIApp() {
+            uiEventCenter = new UIEventCenter();
         }
 
         public void Canvas_Login_Open(GameContext ctx) {
@@ -20,7 +22,7 @@ namespace VR {
 
 
 
-                    
+
                     Debug.LogError("UIApp.Canvas_Login_Open: prefab is null");
                     return;
                 }
@@ -29,6 +31,11 @@ namespace VR {
                 GameObject go = GameObject.Instantiate(prefab);
                 panel = go.GetComponent<Canvas_Login>();
                 panel.Ctor();
+
+                panel.OnStartBtnClick = () => {
+                    uiEventCenter.OnStartBtnClickHandleInvoke();
+                };
+
                 ctx.uiApp.canvas_Login = panel;
 
             }

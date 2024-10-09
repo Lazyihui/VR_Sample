@@ -6,11 +6,16 @@ using UnityEngine.UI;
 namespace VR {
     public class Canvas_Login : MonoBehaviour {
 
-        [SerializeField] public Image Button;
+        [SerializeField] public Image bg_Btn;
 
+        [SerializeField] public Button StartBtn;
+
+        public Action OnStartBtnClick;
 
         public void Ctor() {
-
+            StartBtn.onClick.AddListener(() => {
+                OnStartBtnClick?.Invoke();
+            });
         }
 
         public void Show() {
@@ -18,7 +23,7 @@ namespace VR {
         }
 
         public void SetColor(Color color) {
-            Button.color = color;
+            bg_Btn.color = color;
         }
     }
 }
