@@ -17,9 +17,14 @@ namespace VR {
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetLogin();
                 if (prefab == null) {
+
+
+
+                    
                     Debug.LogError("UIApp.Canvas_Login_Open: prefab is null");
                     return;
                 }
+
 
                 GameObject go = GameObject.Instantiate(prefab);
                 panel = go.GetComponent<Canvas_Login>();
