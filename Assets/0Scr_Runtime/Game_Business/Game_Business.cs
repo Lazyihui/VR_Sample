@@ -93,6 +93,7 @@ namespace VR {
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
                 //按下
+                Debug.Log("x显示");
                 if (ctx.gameEntity.isTriggerPress) {
                     Debug.Log("按下");
                 }
