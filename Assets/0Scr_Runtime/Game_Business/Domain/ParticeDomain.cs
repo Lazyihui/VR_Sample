@@ -31,20 +31,18 @@ namespace VR {
 
         public static void ParticleTick(GameContext ctx, ParticleEnity particle, float dt) {
 
+            particle.time += dt;
 
-            float time = particle.time;
-
-            time += dt;
-            if (time < 10) {
-                if (time < 5) {
+            if (particle.time < 8) {
+                if (particle.time < 4) {
                     particle.roatte_way = false;
-                    particle.rotate_speed += 0.1f;
+                    particle.rotate_speed += 0.2f;
                 } else {
                     particle.roatte_way = true;
-                    particle.rotate_speed -= 0.1f;
+                    particle.rotate_speed -= 0.2f;
                 }
             } else {
-                time = 0;
+                particle.time = 0;
                 particle.rotate_speed = -1f;
             }
 

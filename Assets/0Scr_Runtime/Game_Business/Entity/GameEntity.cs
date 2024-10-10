@@ -21,6 +21,8 @@ namespace VR {
 
         public bool isLeftTouchLoginButton;
 
+        public bool isTriggerPress;
+
 
 
         public GameEntity() {

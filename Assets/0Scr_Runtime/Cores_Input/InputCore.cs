@@ -13,7 +13,7 @@ namespace VR {
         }
 
 
-        public void Tick(float dt, Camera camera) {
+        public void Tick(float dt, Camera camera, GameContext gameContext) {
 
 
 
@@ -47,17 +47,40 @@ namespace VR {
 
             {
 
-                float leftHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.UIPress.ReadValue<float>();
+                // float leftHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.UIPress.ReadValue<float>();
+                // ctx.leftHand.triggerValue = leftHandTrigger;
+                // if (leftHandTrigger > 0.5f) {
+                //     Debug.Log("leftHandTrigger"+leftHandTrigger);
+                //     gameContext.gameEntity.isTriggerPress = true;
+                // } else {
+                //     gameContext.gameEntity.isTriggerPress = false;
+                // }
+
+                // float rightHandTrigger = ctx.inputXRIAction.XRIRightHandInteraction.UIPress.ReadValue<float>();
+                // ctx.rightHand.triggerValue = rightHandTrigger;
+                // if (rightHandTrigger > 0.5f) {
+                //     gameContext.gameEntity.isTriggerPress = true;
+                // } else {
+                //     gameContext.gameEntity.isTriggerPress = false;
+                // }
+
+                float leftHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.Activate.ReadValue<float>();
                 ctx.leftHand.triggerValue = leftHandTrigger;
+
                 if (leftHandTrigger > 0.5f) {
+                    gameContext.gameEntity.isTriggerPress = true;
+                } else {
+                    gameContext.gameEntity.isTriggerPress = false;
                 }
 
-                float rightHandTrigger = ctx.inputXRIAction.XRIRightHandInteraction.UIPress.ReadValue<float>();
+
+                float rightHandTrigger = ctx.inputXRIAction.XRILeftHandInteraction.Activate.ReadValue<float>();
                 ctx.rightHand.triggerValue = rightHandTrigger;
                 if (rightHandTrigger > 0.5f) {
-
+                    gameContext.gameEntity.isTriggerPress = true;
+                } else {
+                    gameContext.gameEntity.isTriggerPress = false;
                 }
-
 
             }
 

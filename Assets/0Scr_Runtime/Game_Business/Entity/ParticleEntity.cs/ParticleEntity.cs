@@ -20,9 +20,9 @@ namespace VR {
 
         public Gradient grad; //颜色渐变
 
-        public int count = 100000; //粒子数量
+        public int count = 1000000; //粒子数量
 
-        public float size = 0.1f; //粒子大小
+        public float size = 0.2f; //粒子大小
         public float minRadius = 0.1f; //最小半径
 
         public float maxRadius = 0.15f; //最大半径

@@ -23,42 +23,44 @@ namespace VR {
 
 
 
-        // public static void UnSpawn(GameContext ctx, RoleEntity role) {
-        //     ctx.roleRepo.Remove(role);
-        //     role.TearDown();
-        // }
-        // public static void Raycast(GameContext ctx, RoleEntity role) {
-        //     // 左手
-        //     {
-        //         //1.射线的起点
-        //         Vector3 rayOriginLeft = role.GetLeftHandPos();
-        //         Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
-        //         // RaycastHit leftHit
-        //         bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 1.9f, 1 << 7);
-        //         Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 1.9f, Color.red);
-        //         if (leftHit) {
-        //             Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.green);
-        //             ctx.gameEntity.isLeftTouchLoginButton = true;
-        //         } else {
-        //             ctx.gameEntity.isLeftTouchLoginButton = false;
-        //         }
-        //     }
-        //     // 右手
-        //     {
-        //         Vector3 rayOriginRight = role.GetRightHandPos();
-        //         Ray rayRight = new Ray(rayOriginRight, role.rightHandDevice.transform.forward);
-        //         // RaycastHit rightHit
-        //         bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 1.9f, 1 << 7);
-        //         Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward * 1.9f, Color.red);
-        //         if (rightHit) {
-        //             // Debug.DrawLine(rayOriginRight, hitInfo.point, Color.red);
-        //             Debug.DrawLine(rayOriginRight, hitInfo.point, Color.green);
-        //             ctx.gameEntity.isRightTouchLoginButton = true;
-        //         } else {
-        //             ctx.gameEntity.isRightTouchLoginButton = false;
-        //         }
-        //     }
-        // }
+        public static void UnSpawn(GameContext ctx, RoleEntity role) {
+            ctx.roleRepo.Remove(role);
+            role.TearDown();
+        }
+
+
+        public static void Raycast(GameContext ctx, RoleEntity role) {
+            // 左手
+            {
+                //1.射线的起点
+                Vector3 rayOriginLeft = role.GetLeftHandPos();
+                Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
+                // RaycastHit leftHit
+                bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 5f, 1 << 8);
+                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 5f, Color.red);
+                if (leftHit) {
+                    Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.green);
+                    ctx.gameEntity.isLeftTouchLoginButton = true;
+                } else {
+                    ctx.gameEntity.isLeftTouchLoginButton = false;
+                }
+            }
+            // 右手
+            {
+                Vector3 rayOriginRight = role.GetRightHandPos();
+                Ray rayRight = new Ray(rayOriginRight, role.rightHandDevice.transform.forward);
+                // RaycastHit rightHit
+                bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 5f, 1 << 8);
+                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward *5f, Color.red);
+                if (rightHit) {
+                    // Debug.DrawLine(rayOriginRight, hitInfo.point, Color.red);
+                    Debug.DrawLine(rayOriginRight, hitInfo.point, Color.green);
+                    ctx.gameEntity.isRightTouchLoginButton = true;
+                } else {
+                    ctx.gameEntity.isRightTouchLoginButton = false;
+                }
+            }
+        }
 
 
         // 人物移动

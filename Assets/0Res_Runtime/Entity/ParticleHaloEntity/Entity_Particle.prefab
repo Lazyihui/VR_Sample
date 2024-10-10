@@ -289,7 +289,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.06
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -753,7 +753,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -4846,6 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ecae419793bc4dbbc6d0dab2bdc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   particleSys: {fileID: 8100607794037435179}
   grad:
     serializedVersion: 2
@@ -4886,7 +4887,6 @@ MonoBehaviour:
   rotate_speed: -1
   roatte_way: 0
   time: 0
-  tier: 10
 --- !u!114 &1783613167586892846
 MonoBehaviour:
   m_ObjectHideFlags: 0

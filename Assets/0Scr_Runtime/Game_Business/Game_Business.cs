@@ -56,7 +56,7 @@ namespace VR {
         static void PreTick(GameContext ctx, float dt) {
             InputCore input = ctx.inputCore;
 
-            input.Tick(dt, ctx.cameraCore.GetCamera());
+            input.Tick(dt, ctx.cameraCore.GetCamera(), ctx);
 
             // 赋值给角色
             RoleEntity owner = ctx.Role_GetOwner();
@@ -74,13 +74,16 @@ namespace VR {
             if (owner.roleState == RoleState.Idle) {
                 RoleDomain.SetHandPosition(ctx, owner);
                 RoleDomain.SetHandRotate(ctx, owner);
+
+                RoleDomain.Raycast(ctx, owner);
             } else if (owner.roleState == RoleState.Move) {
                 RoleDomain.Move(ctx, owner, dt);
-
                 RoleDomain.RoleHeadRotate(ctx, owner, dt);
-
                 RoleDomain.SetHandPosition(ctx, owner);
                 RoleDomain.SetHandRotate(ctx, owner);
+
+                RoleDomain.Raycast(ctx, owner);
+
             }
 
 
@@ -89,12 +92,18 @@ namespace VR {
             // gameDomain
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
+                //按下
+                if (ctx.gameEntity.isTriggerPress) {
+                    Debug.Log("按下");
+                }
+                // ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
 
-                ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
 
-                ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
-
+                // ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
+                // if (ctx.gameEntity.isTriggerPress) {
+                //     Debug.Log("抬起");
+                // }
             }
 
             // particleDomain
