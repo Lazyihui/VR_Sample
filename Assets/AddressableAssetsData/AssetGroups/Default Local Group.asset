@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 1293e5319e76aa34a8f3793d05fab983
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: b2d1f3d13d6e3b341a43c0a8233f4a13
+    m_Address: ParticleHaloEntity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Entity
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6bd6369f00e0a034ca640667812f6555, type: 2}
   m_SchemaSet:

@@ -48,8 +48,10 @@ namespace VR {
             var uiEventCenter = ctx.uiApp.uiEventCenter;
 
             uiEventCenter.OnStartBtnClickHandle = () => {
-                
+
                 Game_Business.EnterGame(ctx);
+
+                ParticleDomain.Spawn(ctx);
             };
 
         }

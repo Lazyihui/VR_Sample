@@ -22,6 +22,8 @@ namespace VR {
 
         public RoleRepo roleRepo;
 
+        public ParticleRepo particleRepo;
+
         public UIApp uiApp;
 
         // Inject
@@ -35,7 +37,7 @@ namespace VR {
             inputCore = new InputCore();
             cameraCore = new CameraCore();
             assetsCore = new AssetsCore();
-
+            particleRepo = new ParticleRepo();
             // rope
             roleRepo = new RoleRepo();
 

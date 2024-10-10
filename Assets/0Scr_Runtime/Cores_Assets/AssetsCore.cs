@@ -65,7 +65,7 @@ namespace VR {
             ctx.entityPrefabs.TryGetValue("Entity_Role_test", out GameObject role);
             return role;
         }
-        
+
 
         public GameObject Entity_GetHand() {
             ctx.entityPrefabs.TryGetValue("Entity_Hand", out GameObject hand);
@@ -73,10 +73,16 @@ namespace VR {
         }
 
         public GameObject Panel_GetLogin() {
-            
+
             ctx.panelPrefabs.TryGetValue("Canvas_test", out GameObject login);
             return login;
         }
+
+        public GameObject Entity_Particle() {
+            ctx.entityPrefabs.TryGetValue("Entity_Particle", out GameObject particle);
+            return particle;
+        }
+
     }
 }
 

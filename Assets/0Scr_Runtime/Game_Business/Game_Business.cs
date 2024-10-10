@@ -15,7 +15,7 @@ namespace VR {
 
         }
 
-        public static void EnterGame(GameContext ctx){
+        public static void EnterGame(GameContext ctx) {
 
             ctx.uiApp.Canvas_Login_Close(ctx);
 
@@ -89,7 +89,7 @@ namespace VR {
             // gameDomain
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
-                
+
                 ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
 
@@ -97,6 +97,14 @@ namespace VR {
 
             }
 
+            // particleDomain
+
+            int parLen = ctx.particleRepo.TakeAll(out ParticleEnity[] particles);
+
+            for (int i = 0; i < parLen; i++) {
+                ParticleEnity particle = particles[i];
+                ParticleDomain.ParticleTick(ctx, particle, dt);
+            }
         }
 
 

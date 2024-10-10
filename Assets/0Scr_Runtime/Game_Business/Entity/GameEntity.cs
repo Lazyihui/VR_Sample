@@ -11,6 +11,8 @@ namespace VR {
 
         public int handRecoredID;
 
+        public int particleRecoredID;
+
         public float restTime;
 
         public float enterTimer;
@@ -19,11 +21,12 @@ namespace VR {
 
         public bool isLeftTouchLoginButton;
 
-    
+
 
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;
+            particleRecoredID = 0;
 
             restTime = 0;
             enterTimer = 3;
