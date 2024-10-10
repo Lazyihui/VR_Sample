@@ -93,9 +93,10 @@ namespace VR {
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
                 //按下
-                Debug.Log("x显示");
                 if (ctx.gameEntity.isTriggerPress) {
-                    Debug.Log("按下");
+                    // ParticleEnity particle = ctx.gameEntity.GetCollider_Particle(ctx, ctx.gameEntity.particleColliderID);
+                    // ParticleDomain.UnSpawn(ctx, particle);
+                    Debug.Log("销毁");
                 }
                 // ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
 

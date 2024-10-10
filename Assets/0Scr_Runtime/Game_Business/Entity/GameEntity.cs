@@ -23,15 +23,22 @@ namespace VR {
 
         public bool isTriggerPress;
 
+        public int particleColliderID;
+
 
 
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;
             particleRecoredID = 0;
-
             restTime = 0;
             enterTimer = 3;
+
+        }
+
+        public ParticleEnity GetCollider_Particle(GameContext ctx,int id) {
+            ctx.particleRepo.TryGet(id, out ParticleEnity particle);
+            return particle;
 
         }
     }

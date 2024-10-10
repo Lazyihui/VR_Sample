@@ -37,9 +37,18 @@ namespace VR {
                 Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
                 // RaycastHit leftHit
                 bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 7f, 1 << 8);
-                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 7f, Color.red);
+
+                if (hitInfo.collider == null) {
+                    return;
+                }
+
+                ParticleEnity particle = hitInfo.collider.GetComponentInParent<ParticleEnity>();
+
+                particle.id = ctx.gameEntity.particleColliderID;
+
+                Debug.Log("particle.id:" + particle.id);
+
                 if (leftHit) {
-                    Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.green);
                     ctx.gameEntity.isLeftTouchLoginButton = true;
                 } else {
                     ctx.gameEntity.isLeftTouchLoginButton = false;
@@ -51,10 +60,15 @@ namespace VR {
                 Ray rayRight = new Ray(rayOriginRight, role.rightHandDevice.transform.forward);
                 // RaycastHit rightHit
                 bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 7f, 1 << 8);
-                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward *7f, Color.red);
+
+                if (hitInfo.collider == null) {
+                    return;
+                }
+
+                ParticleEnity particle = hitInfo.collider.GetComponentInParent<ParticleEnity>();
+                particle.id = ctx.gameEntity.particleColliderID;
+
                 if (rightHit) {
-                    // Debug.DrawLine(rayOriginRight, hitInfo.point, Color.red);
-                    Debug.DrawLine(rayOriginRight, hitInfo.point, Color.green);
                     ctx.gameEntity.isRightTouchLoginButton = true;
                 } else {
                     ctx.gameEntity.isRightTouchLoginButton = false;
