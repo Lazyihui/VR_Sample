@@ -36,8 +36,8 @@ namespace VR {
                 Vector3 rayOriginLeft = role.GetLeftHandPos();
                 Ray rayLeft = new Ray(rayOriginLeft, role.leftHandDevice.transform.forward);
                 // RaycastHit leftHit
-                bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 5f, 1 << 8);
-                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 5f, Color.red);
+                bool leftHit = Physics.Raycast(rayLeft, out RaycastHit hitInfo, 7f, 1 << 8);
+                Debug.DrawRay(rayOriginLeft, role.leftHandDevice.transform.forward * 7f, Color.red);
                 if (leftHit) {
                     Debug.DrawLine(rayOriginLeft, hitInfo.point, Color.green);
                     ctx.gameEntity.isLeftTouchLoginButton = true;
@@ -50,8 +50,8 @@ namespace VR {
                 Vector3 rayOriginRight = role.GetRightHandPos();
                 Ray rayRight = new Ray(rayOriginRight, role.rightHandDevice.transform.forward);
                 // RaycastHit rightHit
-                bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 5f, 1 << 8);
-                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward *5f, Color.red);
+                bool rightHit = Physics.Raycast(rayRight, out RaycastHit hitInfo, 7f, 1 << 8);
+                Debug.DrawRay(rayOriginRight, role.rightHandDevice.transform.forward *7f, Color.red);
                 if (rightHit) {
                     // Debug.DrawLine(rayOriginRight, hitInfo.point, Color.red);
                     Debug.DrawLine(rayOriginRight, hitInfo.point, Color.green);
