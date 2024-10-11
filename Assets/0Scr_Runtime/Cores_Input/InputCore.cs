@@ -20,8 +20,11 @@ namespace VR {
             // 移动 左手移动 控制面板（相当于摇杆）
             {
                 // XRILeftHandLocomotion.Move 这个是得到移动的方向 [-1,1] 
-                Vector2 moveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
-                ctx.leftHand.moveAxis = moveAxis;
+                Vector2 leftmoveAxis = ctx.inputXRIAction.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
+                ctx.leftHand.moveAxis = leftmoveAxis;
+
+                Vector2 RightmoveAxis = ctx.inputXRIAction.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
+                ctx.rightHand.moveAxis = RightmoveAxis;
             }
 
             // 得到左右手相对于头的位置
@@ -112,6 +115,9 @@ namespace VR {
             return ctx.leftHand.moveAxis;
         }
 
+        public Vector2 GetRightMoveAxis() {
+            return ctx.rightHand.moveAxis;
+        }
         public Quaternion GetHeadRotate() {
             return ctx.head.rotate;
         }

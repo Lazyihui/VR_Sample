@@ -73,22 +73,19 @@ namespace VR {
         static void FixTick(GameContext ctx, float dt) {
 
             RoleEntity owner = ctx.Role_GetOwner();
-            if (owner.roleState == RoleState.Idle) {
-                RoleDomain.SetHandPosition(ctx, owner);
-                RoleDomain.SetHandRotate(ctx, owner);
 
-                RoleDomain.Raycast(ctx, owner);
-            } else if (owner.roleState == RoleState.Move) {
-                RoleDomain.Move(ctx, owner, dt);
-                RoleDomain.RoleHeadRotate(ctx, owner, dt);
-                RoleDomain.SetHandPosition(ctx, owner);
-                RoleDomain.SetHandRotate(ctx, owner);
-                RoleDomain.Raycast(ctx, owner);
+            RoleDomain.Raycast(ctx, owner);
+            RoleDomain.RoleHeadRotate(ctx, owner, dt);
+            RoleDomain.SetHandPosition(ctx, owner);
+            RoleDomain.SetHandRotate(ctx, owner);
+            RoleDomain.Raycast(ctx, owner);
 
-            }
+            RoleDomain.MoveLeftRight(ctx, owner, dt);
+            RoleDomain.MoveUpDown(ctx, owner, dt);
 
             PlaneEntity plane = ctx.Plane_GetOwner();
-            PlaneDomain.Move(ctx, plane, dt);
+            PlaneDomain.MoveLeftRight(ctx, plane, dt);
+            PlaneDomain.MoveUpDown(ctx, plane, dt);
 
 
         }

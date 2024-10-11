@@ -80,7 +80,7 @@ namespace VR {
 
                 RoleDomain.Raycast(ctx, owner);
             } else if (owner.roleState == RoleState.Move) {
-                RoleDomain.Move(ctx, owner, dt);
+                RoleDomain.MoveLeftRight(ctx, owner, dt);
                 RoleDomain.RoleHeadRotate(ctx, owner, dt);
                 RoleDomain.SetHandPosition(ctx, owner);
                 RoleDomain.SetHandRotate(ctx, owner);

@@ -76,7 +76,7 @@ namespace VR {
 
 
         // 人物移动
-        public static void Move(GameContext ctx, RoleEntity role, float dt) {
+        public static void MoveLeftRight(GameContext ctx, RoleEntity role, float dt) {
             RoleInputComponent inputComponent = role.InputComponent;
             float moveSpeed = role.moveSpeed;
             Vector3 moveDir = new Vector3(inputComponent.moveAxis.x, 0, inputComponent.moveAxis.y);
@@ -87,6 +87,20 @@ namespace VR {
             moveDir = moveDir * moveSpeed * dt;
             role.transform.position += moveDir;
 
+        }
+
+        public static void MoveUpDown(GameContext ctx, RoleEntity role, float dt) {
+
+            float moveSpeed = role.moveSpeed;
+            Vector2 pos = ctx.inputCore.GetRightMoveAxis();
+
+            Vector3 moveDir = new Vector3(0, pos.y, 0);
+            moveDir.Normalize();
+
+            moveDir = role.headtransform.rotation * moveDir;
+
+            moveDir = moveDir * moveSpeed * dt;
+            role.transform.position += moveDir;
         }
         // 头的旋转
         public static void RoleHeadRotate(GameContext ctx, RoleEntity role, float dt) {
