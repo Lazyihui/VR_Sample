@@ -43,14 +43,7 @@ namespace VR {
             panel.TearDown();
         }
 
-        public void Login_buttonSetColor(GameContext ctx, Color color) {
-            Canvas_Login panel = ctx.uiApp.canvas_Login;
-            if (panel == null) {
-                return;
-            }
-
-            panel.SetColor(color);
-        }
+    
 
 
 

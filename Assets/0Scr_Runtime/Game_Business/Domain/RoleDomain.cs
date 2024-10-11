@@ -42,11 +42,9 @@ namespace VR {
                     return;
                 }
 
-                ParticleEnity particle = hitInfo.collider.GetComponentInParent<ParticleEnity>();
+                ParticleEnity particle = hitInfo.collider.gameObject.GetComponentInParent<ParticleEnity>();
 
-                particle.id = ctx.gameEntity.particleColliderID;
-
-                Debug.Log("particle.id:" + particle.id);
+                ctx.gameEntity.particleColliderID = particle.id;
 
                 if (leftHit) {
                     ctx.gameEntity.isLeftTouchLoginButton = true;

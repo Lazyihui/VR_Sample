@@ -25,6 +25,8 @@ namespace VR {
 
 
         public static void UnSpawn(GameContext ctx, ParticleEnity particle) {
+            Debug.Assert(particle != null, "particle is null");
+            Debug.Assert(ctx.particleRepo != null, "ctx.particleRepo is null");
             ctx.particleRepo.Remove(particle);
             particle.TearDown();
         }

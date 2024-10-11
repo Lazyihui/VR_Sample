@@ -92,20 +92,23 @@ namespace VR {
             // gameDomain
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
+                if (ctx.gameEntity.particleUnSpawn) {
+                    return;
+                }
                 //按下
                 if (ctx.gameEntity.isTriggerPress) {
-                    // ParticleEnity particle = ctx.gameEntity.GetCollider_Particle(ctx, ctx.gameEntity.particleColliderID);
-                    // ParticleDomain.UnSpawn(ctx, particle);
+                    // 1.销毁
+                    ctx.particleRepo.TryGet(ctx.gameEntity.particleColliderID, out ParticleEnity particle);
+                    ParticleDomain.UnSpawn(ctx, particle);
+                    ctx.gameEntity.particleUnSpawn = true;
                     Debug.Log("销毁");
+                    // 2.进入下一个场景
                 }
-                // ctx.uiApp.Login_buttonSetColor(ctx, Color.red);
 
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
 
-                // ctx.uiApp.Login_buttonSetColor(ctx, Color.white);
-                // if (ctx.gameEntity.isTriggerPress) {
-                //     Debug.Log("抬起");
-                // }
+
+
             }
 
             // particleDomain

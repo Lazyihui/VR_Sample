@@ -25,21 +25,21 @@ namespace VR {
 
         public int particleColliderID;
 
+        public bool particleUnSpawn;
+
 
 
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;
-            particleRecoredID = 0;
+            particleRecoredID = 5;
             restTime = 0;
             enterTimer = 3;
 
-        }
-
-        public ParticleEnity GetCollider_Particle(GameContext ctx,int id) {
-            ctx.particleRepo.TryGet(id, out ParticleEnity particle);
-            return particle;
+            particleUnSpawn = false;
 
         }
+
+
     }
 }
