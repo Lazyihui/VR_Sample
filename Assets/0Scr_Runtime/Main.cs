@@ -54,6 +54,11 @@ namespace VR {
                 ParticleDomain.Spawn(ctx);
             };
 
+            uiEventCenter.OnBtn_AClickHandle = () => {
+                Debug.Log("OnBtn_AClickHandle");
+                ctx.uiApp.Canvas_A_Close(ctx);
+            };
+
         }
 
         void Update() {

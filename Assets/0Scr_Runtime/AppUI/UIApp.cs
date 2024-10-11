@@ -9,6 +9,8 @@ namespace VR {
 
         public Canvas_Login canvas_Login;
 
+        public Canvas_A canvas_A;
+
         public UIEventCenter uiEventCenter;
         public UIApp() {
             uiEventCenter = new UIEventCenter();
@@ -43,9 +45,36 @@ namespace VR {
             panel.TearDown();
         }
 
-    
+        public void Canvas_A_Open(GameContext ctx) {
+            Canvas_A panel = ctx.uiApp.canvas_A;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetA();
+                if (prefab == null) {
+                    Debug.LogError("UIApp.Canvas_A_Open: prefab is null");
+                    return;
+                }
+                GameObject go = GameObject.Instantiate(prefab);
+                panel = go.GetComponent<Canvas_A>();
+                panel.Ctor();
+                panel.OnBtn_AClick = () => {
+                    uiEventCenter.OnBtn_AClickHandleInvoke();
+                };
+
+                ctx.uiApp.canvas_A = panel;
+
+            }
+            panel.Show();
+        }
 
 
+        public void Canvas_A_Close(GameContext ctx) {
+            Canvas_A panel = ctx.uiApp.canvas_A;
+            if(panel == null) {
+                return;
+            }
+            panel.TearDown();
+
+        }
 
 
     }

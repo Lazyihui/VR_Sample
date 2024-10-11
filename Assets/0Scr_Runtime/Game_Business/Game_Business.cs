@@ -103,6 +103,7 @@ namespace VR {
                     ctx.gameEntity.particleUnSpawn = true;
                     Debug.Log("销毁");
                     // 2.进入下一个场景
+                    ctx.uiApp.Canvas_A_Open(ctx);
                 }
 
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {

@@ -78,6 +78,11 @@ namespace VR {
             return login;
         }
 
+        public GameObject Panel_GetA() {
+            ctx.panelPrefabs.TryGetValue("Canvas_A", out GameObject panel);
+            return panel;
+        }
+
         public GameObject Entity_Particle() {
             ctx.entityPrefabs.TryGetValue("Entity_Particle", out GameObject particle);
             return particle;
