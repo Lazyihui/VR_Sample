@@ -106,7 +106,7 @@ namespace VR {
                 }
 
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
-
+                
             }
 
             // particleDomain

@@ -80,13 +80,14 @@ namespace VR {
             RoleDomain.SetHandRotate(ctx, owner);
             RoleDomain.Raycast(ctx, owner);
 
-            RoleDomain.MoveLeftRight(ctx, owner, dt);
-            RoleDomain.MoveUpDown(ctx, owner, dt);
+            // RoleDomain.MoveLeftRight(ctx, owner, dt);
+            // RoleDomain.MoveUpDown(ctx, owner, dt);
 
             PlaneEntity plane = ctx.Plane_GetOwner();
             PlaneDomain.MoveLeftRight(ctx, plane, dt);
             PlaneDomain.MoveUpDown(ctx, plane, dt);
 
+            RoleDomain.RoleFollowPlane(ctx, owner, plane);
 
         }
 

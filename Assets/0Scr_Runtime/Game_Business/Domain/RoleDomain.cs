@@ -28,6 +28,11 @@ namespace VR {
             role.TearDown();
         }
 
+        public static void RoleFollowPlane(GameContext ctx, RoleEntity role, PlaneEntity plane) {
+
+            role.transform.position = (plane.transform.position + new Vector3(0, 0, -7f));
+            Debug.Log(role.transform.position + " " + plane.transform.position);
+        }
 
         public static void Raycast(GameContext ctx, RoleEntity role) {
             // 左手
