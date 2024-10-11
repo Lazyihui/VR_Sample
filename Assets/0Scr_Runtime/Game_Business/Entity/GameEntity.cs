@@ -7,6 +7,8 @@ namespace VR {
 
     public class GameEntity {
 
+
+        public GameState gameState;
         public int roleOwnerID;
 
         public int handRecoredID;
@@ -27,8 +29,8 @@ namespace VR {
 
         public bool particleUnSpawn;
 
-
-
+        // plane
+        public int planeOwnerID;
         public GameEntity() {
             roleOwnerID = 0;
             handRecoredID = 0;
@@ -37,6 +39,9 @@ namespace VR {
             enterTimer = 3;
 
             particleUnSpawn = false;
+            planeOwnerID = 0;
+
+            gameState = GameState.Login;
 
         }
 

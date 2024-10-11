@@ -24,6 +24,8 @@ namespace VR {
 
         public ParticleRepo particleRepo;
 
+        public PlaneRepo planeRepo;
+
         public UIApp uiApp;
 
         // Inject
@@ -37,9 +39,10 @@ namespace VR {
             inputCore = new InputCore();
             cameraCore = new CameraCore();
             assetsCore = new AssetsCore();
-            particleRepo = new ParticleRepo();
             // rope
             roleRepo = new RoleRepo();
+            particleRepo = new ParticleRepo();
+            planeRepo = new PlaneRepo();
 
             uiApp = new UIApp();
 
@@ -54,6 +57,15 @@ namespace VR {
             bool has = roleRepo.TryGet(gameEntity.roleOwnerID, out RoleEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Role_GetOwner: roleOwnerID not found");
+                return null;
+            }
+            return entity;
+        }
+
+        public PlaneEntity Plane_GetOwner() {
+            bool has = planeRepo.TryGet(gameEntity.planeOwnerID, out PlaneEntity entity);
+            if (!has) {
+                Debug.LogError("GameContext.Plane_GetOwner: planeOwnerID not found");
                 return null;
             }
             return entity;

@@ -24,6 +24,9 @@ namespace VR {
 
         }
 
+
+      
+
         public static void Tick(GameContext ctx, float dt) {
 
             GameEntity game = ctx.gameEntity;
@@ -86,9 +89,6 @@ namespace VR {
 
             }
 
-
-
-
             // gameDomain
 
             if (ctx.gameEntity.isRightTouchLoginButton || ctx.gameEntity.isLeftTouchLoginButton) {
@@ -101,14 +101,11 @@ namespace VR {
                     ctx.particleRepo.TryGet(ctx.gameEntity.particleColliderID, out ParticleEnity particle);
                     ParticleDomain.UnSpawn(ctx, particle);
                     ctx.gameEntity.particleUnSpawn = true;
-                    Debug.Log("销毁");
                     // 2.进入下一个场景
                     ctx.uiApp.Canvas_A_Open(ctx);
                 }
 
             } else if (!ctx.gameEntity.isLeftTouchLoginButton || !ctx.gameEntity.isRightTouchLoginButton) {
-
-
 
             }
 

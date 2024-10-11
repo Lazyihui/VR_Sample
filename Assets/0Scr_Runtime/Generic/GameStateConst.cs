@@ -1,10 +1,10 @@
 public enum GameState{
     none,
 
-    login,
+    Login,
 
     EnterGame,
 
-    GameController,
+    GameControllerPlane,
 
 }

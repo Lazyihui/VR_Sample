@@ -55,8 +55,10 @@ namespace VR {
             };
 
             uiEventCenter.OnBtn_AClickHandle = () => {
-                Debug.Log("OnBtn_AClickHandle");
                 ctx.uiApp.Canvas_A_Close(ctx);
+                // 进入下一个场景
+                Plane_Business.Enter(ctx);
+
             };
 
         }
@@ -67,7 +69,12 @@ namespace VR {
             }
             float dt = Time.deltaTime;
 
-            Game_Business.Tick(ctx, dt);
+            if (ctx.gameEntity.gameState == GameState.Login) {
+                Game_Business.Tick(ctx, dt);
+            } else if (ctx.gameEntity.gameState == GameState.GameControllerPlane) {
+                Plane_Business.Tick(ctx, dt);
+            }
+
 
         }
         void OnApplictionQuit() {

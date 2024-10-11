@@ -88,6 +88,12 @@ namespace VR {
             return particle;
         }
 
+        public GameObject Entity_Plane() {
+            ctx.entityPrefabs.TryGetValue("Entity_Plane", out GameObject plane);
+
+            return plane;
+        }
+
     }
 }
 
