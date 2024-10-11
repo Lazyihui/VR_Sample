@@ -38,6 +38,16 @@ namespace VR {
             roleState = RoleState.Idle;
 
         }
+
+        public void OriginalPos() {
+            transform.position = new Vector3(0, 0, 0);
+            headtransform.position = new Vector3(0, 1.6f, 0);
+
+            leftHandDevice.transform.localPosition = new Vector3(-0.5f, 1.2f, 0.85f);
+            rightHandDevice.transform.localPosition = new Vector3(0.5f, 1.2f, 0.85f);
+
+        }
+
         // 隐藏手
         public void SetActive() {
             leftRay.SetActive(false);

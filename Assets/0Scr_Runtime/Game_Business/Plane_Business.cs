@@ -9,13 +9,20 @@ namespace VR {
     public static class Plane_Business {
         public static void Enter(GameContext ctx) {
 
-            PlaneEntity plane = PlaneDomain.Spawn(ctx, new Vector3(0, 0, 0));
-            ctx.gameEntity.planeOwnerID = plane.id;
-
-            //隐藏手
             RoleEntity role = ctx.Role_GetOwner();
 
+            // 位置归为原来的位置
+            role.transform.position = new Vector3(0, 0, 0);
+
+            //隐藏手
             role.SetActive();
+
+
+            Vector3 pos = role.headtransform.position + new Vector3(0, 0, 2);
+            PlaneEntity plane = PlaneDomain.Spawn(ctx, pos);
+            ctx.gameEntity.planeOwnerID = plane.id;
+
+            ctx.gameEntity.gameState = GameState.GameControllerPlane;
         }
 
 
@@ -65,12 +72,33 @@ namespace VR {
 
         static void FixTick(GameContext ctx, float dt) {
 
+            RoleEntity owner = ctx.Role_GetOwner();
+            if (owner.roleState == RoleState.Idle) {
+                RoleDomain.SetHandPosition(ctx, owner);
+                RoleDomain.SetHandRotate(ctx, owner);
+
+                RoleDomain.Raycast(ctx, owner);
+            } else if (owner.roleState == RoleState.Move) {
+                RoleDomain.Move(ctx, owner, dt);
+                RoleDomain.RoleHeadRotate(ctx, owner, dt);
+                RoleDomain.SetHandPosition(ctx, owner);
+                RoleDomain.SetHandRotate(ctx, owner);
+                RoleDomain.Raycast(ctx, owner);
+
+            }
+
+            PlaneEntity plane = ctx.Plane_GetOwner();
+            PlaneDomain.Move(ctx, plane, dt);
+
 
         }
 
 
         static void LateTick(GameContext ctx, float dt) {
-
+            RoleEntity owner = ctx.Role_GetOwner();
+            // 相机跟谁
+            Vector2 offset = new Vector2(0, 0);
+            ctx.cameraCore.Tick(owner.GetHandPos(), offset, 0, owner.GetHandForward(), dt);
         }
 
 
