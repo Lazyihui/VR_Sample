@@ -13,6 +13,9 @@ namespace VR {
 
         [SerializeField] public GameObject rightHandDevice;
 
+        [SerializeField] GameObject leftRay;
+        [SerializeField] GameObject RightRay;
+
 
 
         public int id;
@@ -33,6 +36,12 @@ namespace VR {
             rotateSpeed = 100;
 
             roleState = RoleState.Idle;
+
+        }
+        // 隐藏手
+        public void SetActive() {
+            leftRay.SetActive(false);
+            RightRay.SetActive(false);
 
         }
 

@@ -12,6 +12,10 @@ namespace VR {
             PlaneEntity plane = PlaneDomain.Spawn(ctx, new Vector3(0, 0, 0));
             ctx.gameEntity.planeOwnerID = plane.id;
 
+            //隐藏手
+            RoleEntity role = ctx.Role_GetOwner();
+
+            role.SetActive();
         }
 
 

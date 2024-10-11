@@ -1208,6 +1208,8 @@ MonoBehaviour:
   headtransform: {fileID: 336690948068970608}
   leftHandDevice: {fileID: 8407806641326502196}
   rightHandDevice: {fileID: 4107952249586223157}
+  leftRay: {fileID: 8968634994003361456}
+  RightRay: {fileID: 3905214076868456174}
   id: 0
   moveSpeed: 0
   rotateSpeed: 0
